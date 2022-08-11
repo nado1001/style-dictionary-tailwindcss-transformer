@@ -1,0 +1,4 @@
+{
+  "csscomb.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
