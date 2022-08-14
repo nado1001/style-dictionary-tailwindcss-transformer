@@ -1,14 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "strict": true,
-    "lib": ["ESNext"],
-    "types": ["node"],
-    "outDir": "dist"
-  },
-  "include": ["src"],
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "include": ["src", "tsup.config.ts"],
   "exclude": ["node_modules"]
 }
