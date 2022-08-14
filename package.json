@@ -5,13 +5,15 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "NODE_ENV=production tsup",
+    "dev": "NODE_ENV=development tsup"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.6.5",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
