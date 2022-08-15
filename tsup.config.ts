@@ -9,5 +9,6 @@ export default defineConfig({
   format: ['cjs'],
   minify: isProd,
   treeshake: isProd,
-  sourcemap: !isProd
+  sourcemap: !isProd,
+  dts: true
 })
