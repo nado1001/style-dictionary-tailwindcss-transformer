@@ -1,12 +1,12 @@
 import type { Dictionary, Config } from 'style-dictionary/types'
-import { arrayToNestedObject, unquoteFromKeys } from './utils'
+import { getConfigValue, arrayToNestedObject, unquoteFromKeys } from './utils'
 
 const getTailwindFormatObj = (
   dictionary: Dictionary,
   type: string,
   tailwind?: {
     mode: string
-    purge: string[]
+    content: string[]
     darkMode: string
   }
 ) => {
@@ -36,13 +36,15 @@ const getTailwindFormatObj = (
 
   let configs
   if (type === 'all') {
-    configs = `module.exports = {
-  mode: "${tailwind?.mode ?? 'jit'}",
-  purge: ${JSON.stringify(tailwind?.purge ?? ['./src/**/*.{ts,tsx}'])},
-  darkMode: "${tailwind?.darkMode ?? 'class'}",
-  theme: {
-    extend: ${unquoteFromKeys(json)},
-  }
+    configs = `
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+mode: "${tailwind?.mode ?? 'jit'}",
+content: ${JSON.stringify(tailwind?.content ?? ['./src/**/*.{ts,tsx}'])},
+darkMode: "${tailwind?.darkMode ?? 'class'}",
+theme: {
+extend: ${unquoteFromKeys(json)},
+}
 }`
   } else {
     configs = `module.exports = ${unquoteFromKeys(json)}`
@@ -51,20 +53,29 @@ const getTailwindFormatObj = (
   return configs
 }
 
-export const makeSdTailwindConfig = (
-  type: string,
-  tailwind: {
+export const makeSdTailwindConfig = ({
+  type,
+  source,
+  transforms,
+  buildPath,
+  tailwind
+}: {
+  type: 'all' | string
+  source?: string[]
+  transforms?: string[]
+  buildPath?: string
+  tailwind?: {
     mode: string
-    purge: string[]
+    content: string[]
     darkMode: string
   }
-): Config => {
+}): Config => {
   if (type === undefined) {
     throw new Error('type is required')
   }
 
   return {
-    source: [`tokens/**/*.json`],
+    source: getConfigValue(source, [`tokens/**/*.json`]),
     format: {
       tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
         return getTailwindFormatObj(dictionary, type, tailwind)
@@ -72,8 +83,11 @@ export const makeSdTailwindConfig = (
     },
     platforms: {
       [type !== 'all' ? `tailwind/${type}` : 'tailwind']: {
-        transforms: ['attribute/cti', 'name/cti/kebab', 'size/rem'],
-        buildPath: `build/web/`,
+        transforms: getConfigValue(transforms, [
+          'attribute/cti',
+          'name/cti/kebab'
+        ]),
+        buildPath: getConfigValue(buildPath, `build/web/`),
         files: [
           {
             destination:
