@@ -1,25 +1,19 @@
 import { camelCase } from 'camel-case'
 
-type ArrayToNestedObjectType = {
-  obj: any
-  keyPath: string[]
+export const arrayToNestedObject = <T extends readonly string[]>(
+  obj: any,
+  keys: T,
   value: string
-}
-
-export const arrayToNestedObject = ({
-  obj,
-  keyPath,
-  value
-}: ArrayToNestedObjectType): void => {
-  const lastKeyIndex = keyPath.length - 1
-  for (let i = 0; i < lastKeyIndex; ++i) {
-    const key = camelCase(keyPath[i])
+): void => {
+  const lastIndex = keys.length - 1
+  for (let i = 0; i < lastIndex; ++i) {
+    const key = camelCase(keys[i])
     if (!(key in obj)) {
       obj[key] = {}
     }
     obj = obj[key]
   }
-  obj[camelCase(keyPath[lastKeyIndex])] = value
+  obj[camelCase(keys[lastIndex])] = value
 }
 
 export const unquoteFromKeys = (json: string) => {
@@ -31,3 +25,6 @@ export const unquoteFromKeys = (json: string) => {
     } else return match
   })
 }
+
+export const getConfigValue = <T>(value: T | undefined, defaultValue: T) =>
+  value !== undefined ? value : defaultValue
