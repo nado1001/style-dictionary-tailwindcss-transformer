@@ -2,3 +2,4 @@
 **/dist/*
 **/example/*
 /*.js
+/*.config.ts
