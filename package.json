@@ -7,7 +7,9 @@
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
     "build": "NODE_ENV=production tsup",
-    "dev": "NODE_ENV=development tsup"
+    "dev": "NODE_ENV=development tsup",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "files": [
     "dist"
