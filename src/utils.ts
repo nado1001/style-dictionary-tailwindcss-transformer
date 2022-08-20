@@ -1,7 +1,11 @@
 import { camelCase } from 'camel-case'
 
+type NestedObj<T extends Record<string, any>> = {
+  [P in keyof T]: Record<P, NestedObj<T>> | T[P]
+}
+
 export const arrayToNestedObject = <T extends readonly string[]>(
-  obj: any,
+  obj: NestedObj<{ [key: string]: any }>,
   keys: T,
   value: string
 ): void => {
