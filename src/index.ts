@@ -14,7 +14,7 @@ type TailwindFormatObjType = Pick<SdTailwindConfigType, 'type' | 'tailwind'> & {
   dictionary: Dictionary
 }
 
-const filterTokens = (
+const formatTokens = (
   tokens: Dictionary['allTokens'],
   type: SdTailwindConfigType['type']
 ) => {
@@ -44,7 +44,7 @@ const getTailwindFormatObj = ({
   type,
   tailwind
 }: TailwindFormatObjType) => {
-  const content = filterTokens(allTokens, type)
+  const content = formatTokens(allTokens, type)
 
   let configs
   if (type === 'all') {
