@@ -1,5 +1,5 @@
 import type { Dictionary, Platform, Config } from 'style-dictionary/types'
-import { getConfigValue, arrayToNestedObject, unquoteFromKeys } from './utils'
+import { getConfigValue, makeNestedObject, unquoteFromKeys } from './utils'
 import { Config as TailwindConfig } from 'tailwindcss/types'
 
 type SdTailwindConfigType = {
@@ -33,13 +33,13 @@ const formatTokens = (
   const result = {}
   Object.keys(allTokenObj).forEach((key) => {
     const keys = key.split('.').filter((k) => k !== type)
-    arrayToNestedObject(result, keys, allTokenObj[key])
+    makeNestedObject(result, keys, allTokenObj[key])
   })
 
   return JSON.stringify(result, null, 2)
 }
 
-const getTailwindFormatObj = ({
+const getTailwindFormat = ({
   dictionary: { allTokens },
   type,
   tailwind
@@ -47,6 +47,7 @@ const getTailwindFormatObj = ({
   const content = formatTokens(allTokens, type)
 
   let configs
+
   if (type === 'all') {
     configs = `
 /** @type {import('tailwindcss').Config} */
@@ -65,7 +66,7 @@ extend: ${unquoteFromKeys(content)},
   return configs
 }
 
-export const makeSdTailwindConfig = ({
+export const sdTailwindConfig = ({
   type,
   source,
   transforms,
@@ -80,7 +81,7 @@ export const makeSdTailwindConfig = ({
     source: getConfigValue(source, [`tokens/**/*.json`]),
     format: {
       tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
-        return getTailwindFormatObj({ dictionary, type, tailwind })
+        return getTailwindFormat({ dictionary, type, tailwind })
       }
     },
     platforms: {

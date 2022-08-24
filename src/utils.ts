@@ -4,7 +4,7 @@ type NestedObj<T extends Record<string, any>> = {
   [P in keyof T]: Record<P, NestedObj<T>> | T[P]
 }
 
-export const arrayToNestedObject = <T extends readonly string[]>(
+export const makeNestedObject = <T extends readonly string[]>(
   obj: NestedObj<{ [key: string]: any }>,
   keys: T,
   value: string
