@@ -45,6 +45,10 @@ const getTailwindFormat = ({
   tailwind
 }: TailwindFormatObjType) => {
   const content = formatTokens(allTokens, type)
+  const darkMode = getConfigValue(tailwind?.darkMode, 'class')
+  const tailwindContent = getConfigValue(tailwind?.content, [
+    './src/**/*.{ts,tsx}'
+  ])
 
   let configs
 
@@ -53,8 +57,8 @@ const getTailwindFormat = ({
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 mode: "jit",
-content: ${JSON.stringify(tailwind?.content ?? ['./src/**/*.{ts,tsx}'])},
-darkMode: "${tailwind?.darkMode ?? 'class'}",
+content: ["${tailwindContent}"],
+darkMode: "${darkMode}",
 theme: {
 extend: ${unquoteFromKeys(content)},
 }
