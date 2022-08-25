@@ -1,0 +1,12 @@
+{
+  "name": "create-config",
+  "version": "1.0.0",
+  "main": "sd.config.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node sd.config.js"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.1"
+  }
+}

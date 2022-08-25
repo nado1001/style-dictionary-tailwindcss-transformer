@@ -1,0 +1,16 @@
+{
+  "fontSize": {
+    "small": {
+      "value": "0.75rem"
+    },
+    "medium": {
+      "value": "1rem"
+    },
+    "large": {
+      "value": "2rem"
+    },
+    "base": {
+      "value": "{fontSize.medium.value}"
+    }
+  }
+}
