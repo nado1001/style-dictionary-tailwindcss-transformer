@@ -1,13 +1,13 @@
 {
   "fontSize": {
     "small": {
-      "value": "0.75rem"
+      "value": "0.75"
     },
     "medium": {
-      "value": "1rem"
+      "value": "1"
     },
     "large": {
-      "value": "2rem"
+      "value": "2"
     },
     "base": {
       "value": "{fontSize.medium.value}"
