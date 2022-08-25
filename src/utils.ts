@@ -23,11 +23,11 @@ export const makeNestedObject = <T extends readonly string[]>(
 export const getConfigValue = <T>(value: T | undefined, defaultValue: T) =>
   value !== undefined ? value : defaultValue
 
-const joinSpace = (value: string, type?: string) => {
+const joinSpace = (value: string, type?: string, space = ' '.repeat(4)) => {
   if (type !== 'all') {
     return value
   }
-  return `\t\t${value}`
+  return space + value
 }
 
 export const unquoteFromKeys = (json: string, type?: string) => {
