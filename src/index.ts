@@ -56,12 +56,12 @@ const getTailwindFormat = ({
     configs = `
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-mode: "jit",
-content: ["${tailwindContent}"],
-darkMode: "${darkMode}",
-theme: {
-extend: ${unquoteFromKeys(content)},
-}
+  mode: "jit",
+  content: ["${tailwindContent}"],
+  darkMode: "${darkMode}",
+  theme: {
+    extend: ${unquoteFromKeys(content, type)},
+  }
 }`
   } else {
     configs = `module.exports = ${unquoteFromKeys(content)}`
