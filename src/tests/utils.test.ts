@@ -11,12 +11,10 @@ test('unquoteFromKeys', () => {
     colors: {
       base: {
         gray: {
-          light: '#CCCCCC',
-          medium: '#999999',
-          dark: '#111111'
+          light: '#CCCCCC'
         },
         red: '#FF0000',
-        green: '#00FF00'
+        '10x': '#00FF00'
       }
     }
   }
@@ -26,12 +24,10 @@ test('unquoteFromKeys', () => {
   colors: {
     base: {
       gray: {
-        light: "#CCCCCC",
-        medium: "#999999",
-        dark: "#111111"
+        light: "#CCCCCC"
       },
       red: "#FF0000",
-      green: "#00FF00"
+      "10x": "#00FF00"
     }
   }
 }`)
