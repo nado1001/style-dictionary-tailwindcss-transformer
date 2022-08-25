@@ -1,6 +1,6 @@
 import type { Dictionary, Platform, Config } from 'style-dictionary/types'
+import type { Config as TailwindConfig } from 'tailwindcss/types'
 import { getConfigValue, makeNestedObject, unquoteFromKeys } from './utils'
-import { Config as TailwindConfig } from 'tailwindcss/types'
 
 type SdTailwindConfigType = {
   type: 'all' | string
