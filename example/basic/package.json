@@ -7,7 +7,7 @@
     "build": "node sd.config.js"
   },
   "devDependencies": {
-    "deepmerge": "^4.2.2",
-    "style-dictionary": "^3.7.1"
+    "deepmerge": "4.2.2",
+    "style-dictionary": "3.7.1"
   }
 }
