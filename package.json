@@ -2,7 +2,7 @@
   "name": "style-dictionary-plugin-tailwindcss",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
@@ -11,8 +11,20 @@
     "test": "vitest run",
     "coverage": "vitest run --coverage"
   },
+  "homepage": "https://github.com/nado1001/style-dictionary-plugin-tailwindcss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nado1001/style-dictionary-plugin-tailwindcss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nado1001/style-dictionary-plugin-tailwindcss/issues"
+  },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "style-dictionary",
+    "tailwindcss"
   ],
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
@@ -33,5 +45,8 @@
     "tsup": "^6.2.2",
     "typescript": "^4.7.4",
     "vitest": "^0.22.1"
+  },
+  "peerDependencies": {
+    "style-dictionary": ">=3.7.0"
   }
 }
