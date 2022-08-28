@@ -1,5 +1,5 @@
 {
-  "name": "create-config",
+  "name": "create-configuration-file",
   "version": "1.0.0",
   "main": "sd.config.js",
   "license": "MIT",
