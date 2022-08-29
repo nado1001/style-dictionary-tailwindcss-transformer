@@ -96,11 +96,6 @@ constant-case@^3.0.4:
     tslib "^2.0.3"
     upper-case "^2.0.2"
 
-deepmerge@4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
-  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
-
 dot-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/dot-case/-/dot-case-3.0.4.tgz#9b2b670d00a431667a8a75ba29cd1b98809ce751"
@@ -247,6 +242,11 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==
+
+sd-tailwindcss-transformer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.0.1.tgz#876a887df6e23dfec0aa5270d98237ce806202d5"
+  integrity sha512-5rp4AKjeBUAylPKTjkoXFr91ViZWMTPVC9d1A85vPHPQsnXkVsLeHTdQrU1NFMymmlrHJcWQYDwjOZ3BI2fl8w==
 
 sentence-case@^3.0.4:
   version "3.0.4"

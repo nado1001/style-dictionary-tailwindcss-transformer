@@ -1,5 +1,5 @@
 const StyleDictionaryModule = require('style-dictionary')
-const { sdTailwindConfig } = require('../../dist')
+const { sdTailwindConfig } = require('sd-tailwindcss-transformer')
 
 const StyleDictionary = StyleDictionaryModule.extend(
   sdTailwindConfig({ type: 'all' })
