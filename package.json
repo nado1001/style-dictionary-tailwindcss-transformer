@@ -4,12 +4,14 @@
   "main": "dist/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "prepare": "husky install",
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
     "build": "NODE_ENV=production tsup",
     "dev": "NODE_ENV=development tsup",
     "test": "vitest run",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "homepage": "https://github.com/nado1001/sd-tailwindcss-transformer#readme",
   "repository": {
@@ -27,6 +29,8 @@
     "tailwindcss"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@tsconfig/node16": "1.0.3",
     "@types/node": "18.6.5",
     "@typescript-eslint/eslint-plugin": "5.35.1",
@@ -37,6 +41,7 @@
     "eslint": "8.23.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
+    "husky": "^8.0.1",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
     "semantic-release": "19.0.5",
