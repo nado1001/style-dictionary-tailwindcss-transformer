@@ -243,7 +243,7 @@ path-is-absolute@^1.0.0:
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==
 
-sd-tailwindcss-transformer@^1.0.1:
+sd-tailwindcss-transformer@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.0.1.tgz#876a887df6e23dfec0aa5270d98237ce806202d5"
   integrity sha512-5rp4AKjeBUAylPKTjkoXFr91ViZWMTPVC9d1A85vPHPQsnXkVsLeHTdQrU1NFMymmlrHJcWQYDwjOZ3BI2fl8w==
