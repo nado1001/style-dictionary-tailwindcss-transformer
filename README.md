@@ -22,10 +22,10 @@ example:
 
 ```ts
 const StyleDictionaryModule = require('style-dictionary')
-const { sdTailwindConfig } = require('sd-tailwindcss-transformer')
+const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
 
 const StyleDictionary = StyleDictionaryModule.extend(
-  sdTailwindConfig({ type: 'all' })
+  makeSdTailwindConfig({ type: 'all' })
 )
 
 StyleDictionary.buildAllPlatforms()
@@ -67,13 +67,13 @@ example:
 
 ```ts
 const StyleDictionaryModule = require('style-dictionary')
-const { sdTailwindConfig } = require('sd-tailwindcss-transformer')
+const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
 
 const types = ['colors', 'fontSize']
 
 types.map((type) => {
   const StyleDictionary = StyleDictionaryModule.extend(
-    sdTailwindConfig({ type })
+    makeSdTailwindConfig({ type })
   )
 
   StyleDictionary.buildAllPlatforms()
