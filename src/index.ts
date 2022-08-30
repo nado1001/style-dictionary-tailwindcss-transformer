@@ -70,7 +70,7 @@ module.exports = {
   return configs
 }
 
-export const sdTailwindConfig = ({
+export const makeSdTailwindConfig = ({
   type,
   source,
   transforms,
