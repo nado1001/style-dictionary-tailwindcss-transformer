@@ -1,5 +1,5 @@
 const StyleDictionaryModule = require('style-dictionary')
-const { sdTailwindConfig } = require('sd-tailwindcss-transformer')
+const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
 
 StyleDictionaryModule.registerTransform({
   type: `value`,
@@ -21,7 +21,7 @@ const types = ['colors', 'fontSize']
 
 types.map((type) => {
   const StyleDictionary = StyleDictionaryModule.extend(
-    sdTailwindConfig({
+    makeSdTailwindConfig({
       type,
       transforms: ['attribute/cti', 'name/cti/kebab', 'tailwind/font/px']
     })

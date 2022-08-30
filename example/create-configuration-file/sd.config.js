@@ -1,8 +1,8 @@
 const StyleDictionaryModule = require('style-dictionary')
-const { sdTailwindConfig } = require('sd-tailwindcss-transformer')
+const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
 
 const StyleDictionary = StyleDictionaryModule.extend(
-  sdTailwindConfig({ type: 'all' })
+  makeSdTailwindConfig({ type: 'all' })
 )
 
 StyleDictionary.buildAllPlatforms()
