@@ -29,5 +29,6 @@ module.exports = {
         base: "1rem"
       }
     },
-  }
+  },
+  plugins: [require("@tailwindcss/forms"),require("@tailwindcss/typography")]
 }
