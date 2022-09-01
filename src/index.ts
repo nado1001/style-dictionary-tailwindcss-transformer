@@ -7,7 +7,9 @@ type SdTailwindConfigType = {
   source?: Config['source']
   transforms?: Platform['transforms']
   buildPath?: Platform['buildPath']
-  tailwind?: Pick<TailwindConfig, 'content' | 'darkMode'>
+  tailwind?: Pick<TailwindConfig, 'content' | 'darkMode'> & {
+    plugins: Array<'typography' | 'forms' | 'aspect-ratio' | 'line-clamp'>
+  }
 }
 
 type TailwindFormatObjType = Pick<SdTailwindConfigType, 'type' | 'tailwind'> & {
@@ -45,14 +47,20 @@ const getTailwindFormat = ({
   tailwind
 }: TailwindFormatObjType) => {
   const content = formatTokens(allTokens, type)
-  const darkMode = getConfigValue(tailwind?.darkMode, 'class')
-  const tailwindContent = getConfigValue(tailwind?.content, [
-    './src/**/*.{ts,tsx}'
-  ])
-
   let configs
 
   if (type === 'all') {
+    const darkMode = getConfigValue(tailwind?.darkMode, 'class')
+    const tailwindContent = getConfigValue(tailwind?.content, [
+      './src/**/*.{ts,tsx}'
+    ])
+    const tailwindPlugins = getConfigValue(
+      tailwind?.plugins.map((plugin) => {
+        return `require("@tailwindcss/${plugin}")`
+      }),
+      []
+    )
+
     configs = `
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -61,8 +69,11 @@ module.exports = {
   darkMode: "${darkMode}",
   theme: {
     extend: ${unquoteFromKeys(content, type)},
-  }
-}`
+  },`
+    if (tailwindPlugins.length > 0) {
+      configs += `\n  plugins: [${tailwindPlugins}]`
+    }
+    configs += `\n}`
   } else {
     configs = `module.exports = ${unquoteFromKeys(content)}`
   }
