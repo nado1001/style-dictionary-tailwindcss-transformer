@@ -20,8 +20,13 @@ export const makeNestedObject = <T extends readonly string[]>(
   obj[camelCase(keys[lastIndex])] = value
 }
 
-export const getConfigValue = <T>(value: T | undefined, defaultValue: T) =>
-  value !== undefined ? value : defaultValue
+export const getConfigValue = <T>(value: T | undefined, defaultValue: T) => {
+  if (value === undefined) {
+    return defaultValue
+  }
+
+  return value
+}
 
 const joinSpace = (value: string, type?: string, space = ' '.repeat(4)) => {
   if (type !== 'all') {
