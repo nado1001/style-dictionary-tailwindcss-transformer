@@ -2,31 +2,42 @@ import type { Dictionary, Platform, Config } from 'style-dictionary/types'
 import type { Config as TailwindConfig } from 'tailwindcss/types'
 import { getConfigValue, makeNestedObject, unquoteFromKeys } from './utils'
 
+type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
+  plugins: Array<'typography' | 'forms' | 'aspect-ratio' | 'line-clamp'>
+}
+
 type SdTailwindConfigType = {
   type: 'all' | string
+  isVariables?: boolean
   source?: Config['source']
   transforms?: Platform['transforms']
   buildPath?: Platform['buildPath']
-  tailwind?: Pick<TailwindConfig, 'content' | 'darkMode'> & {
-    plugins: Array<'typography' | 'forms' | 'aspect-ratio' | 'line-clamp'>
-  }
+  tailwind?: Partial<TailwindOptions>
 }
 
-type TailwindFormatObjType = Pick<SdTailwindConfigType, 'type' | 'tailwind'> & {
+type TailwindFormatObjType = Pick<
+  SdTailwindConfigType,
+  'type' | 'isVariables' | 'tailwind'
+> & {
   dictionary: Dictionary
 }
 
 const formatTokens = (
   tokens: Dictionary['allTokens'],
-  type: SdTailwindConfigType['type']
+  type: SdTailwindConfigType['type'],
+  isVariables: SdTailwindConfigType['isVariables']
 ) => {
-  const allTokenObj = tokens.reduce<{ [key: string]: string }>((acc, cur) => {
+  const allTokenObj = tokens.reduce<Record<string, string>>((acc, cur) => {
     if (cur.attributes === undefined) {
       throw new Error(`Token ${cur.name} has no attributes`)
     }
 
     if (cur.attributes.category === type || type === 'all') {
-      acc[cur.path.join('.')] = cur.value
+      if (isVariables) {
+        acc[cur.path.join('.')] = `var(--${cur.name})`
+      } else {
+        acc[cur.path.join('.')] = cur.value
+      }
     }
 
     return acc
@@ -44,45 +55,49 @@ const formatTokens = (
 const getTailwindFormat = ({
   dictionary: { allTokens },
   type,
+  isVariables,
   tailwind
 }: TailwindFormatObjType) => {
-  const content = formatTokens(allTokens, type)
-  let configs
+  const content = formatTokens(allTokens, type, isVariables)
 
   if (type === 'all') {
     const darkMode = getConfigValue(tailwind?.darkMode, 'class')
-    const tailwindContent = getConfigValue(tailwind?.content, [
-      './src/**/*.{ts,tsx}'
-    ])
-    const tailwindPlugins = getConfigValue(
-      tailwind?.plugins.map((plugin) => {
+    const tailwindContent = getConfigValue(
+      Array.isArray(tailwind?.content)
+        ? tailwind?.content.map((content) => `"${content}"`)
+        : tailwind?.content,
+      [`"./src/**/*.{ts,tsx}"`]
+    )
+    const plugins = getConfigValue(
+      tailwind?.plugins?.map((plugin) => {
         return `require("@tailwindcss/${plugin}")`
       }),
       []
     )
 
-    configs = `
+    let configs = `
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: "jit",
-  content: ["${tailwindContent}"],
+  content: [${tailwindContent}],
   darkMode: "${darkMode}",
   theme: {
     extend: ${unquoteFromKeys(content, type)},
   },`
-    if (tailwindPlugins.length > 0) {
-      configs += `\n  plugins: [${tailwindPlugins}]`
+
+    if (plugins.length > 0) {
+      configs += `\n  plugins: [${plugins}]`
     }
     configs += `\n}`
+    return configs
   } else {
-    configs = `module.exports = ${unquoteFromKeys(content)}`
+    return `module.exports = ${unquoteFromKeys(content)}`
   }
-
-  return configs
 }
 
 export const makeSdTailwindConfig = ({
   type,
+  isVariables = false,
   source,
   transforms,
   buildPath,
@@ -96,7 +111,7 @@ export const makeSdTailwindConfig = ({
     source: getConfigValue(source, [`tokens/**/*.json`]),
     format: {
       tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
-        return getTailwindFormat({ dictionary, type, tailwind })
+        return getTailwindFormat({ dictionary, isVariables, type, tailwind })
       }
     },
     platforms: {
