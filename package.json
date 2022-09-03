@@ -1,6 +1,6 @@
 {
   "name": "sd-tailwindcss-transformer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/index.js",
   "license": "Apache-2.0",
   "scripts": {
@@ -27,7 +27,8 @@
   ],
   "keywords": [
     "style-dictionary",
-    "tailwindcss"
+    "tailwindcss",
+    "design-tokens"
   ],
   "devDependencies": {
     "@commitlint/cli": "17.1.2",
