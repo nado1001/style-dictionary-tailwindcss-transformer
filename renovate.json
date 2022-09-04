@@ -1,8 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": true,
   "dependencyDashboard": true,
-  "extends": ["config:base", ":timezone(Asia/Tokyo)", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:base"],
+  "ignorePaths": ["**/examples/**"],
+  "timezone": "Asia/Tokyo",
+  "semanticCommitType": "chore",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
