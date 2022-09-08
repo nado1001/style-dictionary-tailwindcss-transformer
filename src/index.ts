@@ -75,8 +75,7 @@ const getTailwindFormat = ({
       []
     )
 
-    let configs = `
-/** @type {import('tailwindcss').Config} */
+    let configs = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: "jit",
   content: [${tailwindContent}],
