@@ -11,7 +11,8 @@ const sdConfig = makeSdTailwindConfig({
     content: [
       './pages/**/*.{js,ts,jsx,tsx}',
       './components/**/*.{js,ts,jsx,tsx}'
-    ]
+    ],
+    plugins: ['typography', 'forms']
   }
 })
 
@@ -21,10 +22,7 @@ sdConfig.platforms['css'] = {
   files: [
     {
       destination: 'tailwind.css',
-      format: 'css/variables',
-      options: {
-        outputReferences: true
-      }
+      format: 'css/variables'
     }
   ]
 }
