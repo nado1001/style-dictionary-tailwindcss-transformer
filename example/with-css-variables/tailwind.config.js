@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: "jit",
@@ -30,4 +29,5 @@ module.exports = {
       }
     },
   },
+  plugins: [require("@tailwindcss/typography"),require("@tailwindcss/forms")]
 }
