@@ -12,7 +12,7 @@ const sdConfig = makeSdTailwindConfig({
       './pages/**/*.{js,ts,jsx,tsx}',
       './components/**/*.{js,ts,jsx,tsx}'
     ],
-    plugins: ['typography', 'forms']
+    plugins: ['typography', 'container-queries']
   }
 })
 
