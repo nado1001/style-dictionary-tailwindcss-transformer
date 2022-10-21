@@ -3,7 +3,9 @@ import type { Config as TailwindConfig } from 'tailwindcss/types'
 import { getConfigValue, makeNestedObject, unquoteFromKeys } from './utils'
 
 type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
-  plugins: Array<'typography' | 'forms' | 'aspect-ratio' | 'line-clamp'>
+  plugins: Array<
+    'typography' | 'forms' | 'aspect-ratio' | 'line-clamp' | 'container-queries'
+  >
 }
 
 type SdTailwindConfigType = {
@@ -87,7 +89,7 @@ module.exports = {
     if (plugins.length > 0) {
       configs += `\n  plugins: [${plugins}]`
     }
-    configs += `\n}`
+    configs += '\n}'
     return configs
   } else {
     return `module.exports = ${unquoteFromKeys(content)}`
@@ -107,7 +109,7 @@ export const makeSdTailwindConfig = ({
   }
 
   return {
-    source: getConfigValue(source, [`tokens/**/*.json`]),
+    source: getConfigValue(source, ['tokens/**/*.json']),
     format: {
       tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
         return getTailwindFormat({ dictionary, isVariables, type, tailwind })
@@ -119,7 +121,7 @@ export const makeSdTailwindConfig = ({
           'attribute/cti',
           'name/cti/kebab'
         ]),
-        buildPath: getConfigValue(buildPath, `build/web/`),
+        buildPath: getConfigValue(buildPath, 'build/web/'),
         files: [
           {
             destination:
