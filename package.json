@@ -28,7 +28,9 @@
   "keywords": [
     "style-dictionary",
     "tailwindcss",
-    "design-tokens"
+    "tailwind",
+    "design-tokens",
+    "design-system"
   ],
   "devDependencies": {
     "@commitlint/cli": "17.3.0",
