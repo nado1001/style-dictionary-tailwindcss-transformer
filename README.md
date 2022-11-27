@@ -4,7 +4,9 @@
 [![Test](https://github.com/nado1001/sd-tailwindcss-transformer/actions/workflows/test.yml/badge.svg)](https://github.com/nado1001/sd-tailwindcss-transformer/actions/workflows/test.yml)
 [![Release](https://img.shields.io/npm/dt/sd-tailwindcss-transformer.svg?logo=npm)](https://www.npmjs.com/package/sd-tailwindcss-transformer)  
 
-This is a plugin to generate the config of Tailwind CSS using Style Dictionary.
+[![Style Dictionary to Tailwind CSS](https://github.com/nado1001/sd-tailwindcss-transformer/blob/main/images/style-dictionary-tailwindcss.png)](https://www.npmjs.com/package/sd-tailwindcss-transformer)
+
+<p align="center">This is a plugin to generate the config of Tailwind CSS using Style Dictionary.<p>
 
 ## Install
 
