@@ -1,6 +1,6 @@
 {
   "name": "sd-tailwindcss-transformer",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "license": "Apache-2.0",
   "scripts": {
@@ -14,13 +14,13 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "prepack": "yarn build"
   },
-  "homepage": "https://github.com/nado1001/sd-tailwindcss-transformer#readme",
+  "homepage": "https://github.com/nado1001/style-dictionary-tailwindcss-transformer#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nado1001/sd-tailwindcss-transformer.git"
+    "url": "git+https://github.com/nado1001/style-dictionary-tailwindcss-transformer.git"
   },
   "bugs": {
-    "url": "https://github.com/nado1001/sd-tailwindcss-transformer/issues"
+    "url": "https://github.com/nado1001/style-dictionary-tailwindcss-transformer/issues"
   },
   "files": [
     "dist"
