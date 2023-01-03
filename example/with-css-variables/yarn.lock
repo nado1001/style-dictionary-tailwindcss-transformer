@@ -919,10 +919,10 @@ source-map-js@^1.0.2:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
-style-dictionary@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-3.7.1.tgz#d61c980513d7bb0a1946a9fab31491a672d0f6a2"
-  integrity sha512-yYU9Z/J8Znj9T9oJVjo8VOYamrOxv0UbBKPjhSt+PharxrhyQCM4RWb71fgEfv2pK9KO8G83/0ChDNQZ1mn0wQ==
+style-dictionary@3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-3.7.2.tgz#bb4e70b2c2020dfa3ea81f22adda252aaf31e0a4"
+  integrity sha512-Nd/qrPj1ikYX+sL/8PofMgfaJLRvGgT96Ty3dJLGNqtZmecVr3Xs+OZivMQEYmSCTiap/UyeV5SqwmAgn3/KKA==
   dependencies:
     chalk "^4.0.0"
     change-case "^4.1.2"
