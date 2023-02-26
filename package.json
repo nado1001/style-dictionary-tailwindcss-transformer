@@ -42,7 +42,7 @@
     "@vitest/coverage-c8": "0.29.1",
     "c8": "7.13.0",
     "camelcase": "7.0.1",
-    "eslint": "8.34.0",
+    "eslint": "8.35.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-import": "2.27.5",
     "husky": "8.0.3",
