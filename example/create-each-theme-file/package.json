@@ -8,6 +8,6 @@
   },
   "devDependencies": {
     "sd-tailwindcss-transformer": "1.2.0",
-    "style-dictionary": "3.7.2"
+    "style-dictionary": "3.8.0"
   }
 }
