@@ -1,4 +1,10 @@
 import { camelCase } from 'camel-case'
+import type {
+  SdTailwindConfigType,
+  TailwindOptions,
+  TailwindFormatType
+} from './types'
+import { format } from 'prettier'
 
 type NestedObj<T extends Record<string, any>> = {
   [P in keyof T]: Record<P, NestedObj<T>> | T[P]
@@ -48,4 +54,44 @@ export const unquoteFromKeys = (json: string, type?: string) => {
   })
 
   return result.replace(/}/g, (match) => joinSpace(match, type))
+}
+
+export const getTemplateConfigByType = (
+  type: SdTailwindConfigType['type'],
+  formatType: TailwindFormatType,
+  content: string,
+  darkMode: TailwindOptions['darkMode'],
+  tailwindContent: TailwindOptions['content'],
+  plugins: string[]
+) => {
+  const getTemplateConfig = () => {
+    let config = `{mode: "jit",content: [${tailwindContent}],darkMode: "${darkMode}",theme: {extend: ${unquoteFromKeys(
+      content,
+      type
+    )},},`
+
+    if (plugins.length > 0) {
+      config += `\n plugins: [${plugins}]`
+    }
+
+    config += '\n}'
+
+    return config
+  }
+
+  if (formatType === 'js' || formatType === 'cjs') {
+    const configs = `/** @type {import('tailwindcss').Config} */\n module.exports = ${getTemplateConfig()}`
+
+    return configs
+  }
+
+  if (formatType === 'ts') {
+    let configs = `import type { Config } from 'tailwindcss'\n export default ${getTemplateConfig()}`
+
+    configs += `\n satisfies\n Config`
+
+    return format(configs, { parser: 'babel', semi: false })
+  }
+
+  return ''
 }
