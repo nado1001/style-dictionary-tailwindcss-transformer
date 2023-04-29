@@ -40,7 +40,6 @@ const formatTokens = (
 
 const getTailwindFormat = ({
   dictionary: { allTokens },
-  formatType,
   type,
   isVariables,
   tailwind
@@ -66,14 +65,11 @@ const getTailwindFormat = ({
 
     const configs = getTemplateConfigByType(
       type,
-      formatType,
       content,
       darkMode,
       tailwindContent,
       plugins
     )
-
-    console.log(configs)
 
     return format(configs, { parser: 'babel', semi: false })
   } else {
@@ -94,6 +90,10 @@ export const makeSdTailwindConfig = ({
 }: SdTailwindConfigType): Config => {
   if (type === undefined) {
     throw new Error('type is required')
+  }
+
+  if (formatType !== 'js' && formatType !== 'cjs') {
+    throw new Error('formatType must be "js" or "cjs"')
   }
 
   return {

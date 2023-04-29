@@ -6,7 +6,7 @@ export type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
     'typography' | 'forms' | 'aspect-ratio' | 'line-clamp' | 'container-queries'
   >
 }
-export type TailwindFormatType = 'js' | 'cjs' | 'ts'
+export type TailwindFormatType = 'js' | 'cjs'
 
 export type SdTailwindConfigType = {
   type: 'all' | string
