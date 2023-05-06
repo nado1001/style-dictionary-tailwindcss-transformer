@@ -243,10 +243,10 @@ path-is-absolute@^1.0.0:
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==
 
-sd-tailwindcss-transformer@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.2.0.tgz#45d25d8443d06f7ce594b5ec1ed9c48bdde8e0cc"
-  integrity sha512-lIcDFyJYHLt0pD5rKfIle8z7X+FfunOaz1UAzh89NDkrCKLupr55xR+jcIIQ9aGXLR3IP1eksyqvH/8+MmPH/g==
+sd-tailwindcss-transformer@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.3.0.tgz#7e92ced6dc94792cdc2bb3a139fde5fd00db50e4"
+  integrity sha512-PMwGJFMzunUimZ/vgDs0YzOgTRC9w1ILQvIpgbFS8L6oXpnPQjwG4C+6E1FQLTveTKNle5Qnt1rslF8iz3VTog==
 
 sentence-case@^3.0.4:
   version "3.0.4"
