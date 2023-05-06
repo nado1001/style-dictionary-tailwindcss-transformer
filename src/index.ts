@@ -1,28 +1,12 @@
-import type { Dictionary, Platform, Config } from 'style-dictionary/types'
-import type { Config as TailwindConfig } from 'tailwindcss/types'
-import { getConfigValue, makeNestedObject, unquoteFromKeys } from './utils'
-
-type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
-  plugins: Array<
-    'typography' | 'forms' | 'aspect-ratio' | 'line-clamp' | 'container-queries'
-  >
-}
-
-type SdTailwindConfigType = {
-  type: 'all' | string
-  isVariables?: boolean
-  source?: Config['source']
-  transforms?: Platform['transforms']
-  buildPath?: Platform['buildPath']
-  tailwind?: Partial<TailwindOptions>
-}
-
-type TailwindFormatObjType = Pick<
-  SdTailwindConfigType,
-  'type' | 'isVariables' | 'tailwind'
-> & {
-  dictionary: Dictionary
-}
+import type { Dictionary, Config } from 'style-dictionary/types'
+import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
+import {
+  getConfigValue,
+  makeNestedObject,
+  unquoteFromKeys,
+  getTemplateConfigByType
+} from './utils'
+import { format } from 'prettier'
 
 const formatTokens = (
   tokens: Dictionary['allTokens'],
@@ -64,12 +48,14 @@ const getTailwindFormat = ({
 
   if (type === 'all') {
     const darkMode = getConfigValue(tailwind?.darkMode, 'class')
+
     const tailwindContent = getConfigValue(
       Array.isArray(tailwind?.content)
         ? tailwind?.content.map((content) => `"${content}"`)
         : tailwind?.content,
       [`"./src/**/*.{ts,tsx}"`]
     )
+
     const plugins = getConfigValue(
       tailwind?.plugins?.map((plugin) => {
         return `require("@tailwindcss/${plugin}")`
@@ -77,27 +63,25 @@ const getTailwindFormat = ({
       []
     )
 
-    let configs = `/** @type {import('tailwindcss').Config} */
-module.exports = {
-  mode: "jit",
-  content: [${tailwindContent}],
-  darkMode: "${darkMode}",
-  theme: {
-    extend: ${unquoteFromKeys(content, type)},
-  },`
+    const configs = getTemplateConfigByType(
+      type,
+      content,
+      darkMode,
+      tailwindContent,
+      plugins
+    )
 
-    if (plugins.length > 0) {
-      configs += `\n  plugins: [${plugins}]`
-    }
-    configs += '\n}'
-    return configs
+    return format(configs, { parser: 'babel', semi: false })
   } else {
-    return `module.exports = ${unquoteFromKeys(content)}`
+    return format(`module.exports = ${unquoteFromKeys(content)}`, {
+      parser: 'babel'
+    })
   }
 }
 
 export const makeSdTailwindConfig = ({
   type,
+  formatType = 'js',
   isVariables = false,
   source,
   transforms,
@@ -108,11 +92,21 @@ export const makeSdTailwindConfig = ({
     throw new Error('type is required')
   }
 
+  if (formatType !== 'js' && formatType !== 'cjs') {
+    throw new Error('formatType must be "js" or "cjs"')
+  }
+
   return {
     source: getConfigValue(source, ['tokens/**/*.json']),
     format: {
       tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
-        return getTailwindFormat({ dictionary, isVariables, type, tailwind })
+        return getTailwindFormat({
+          dictionary,
+          formatType,
+          isVariables,
+          type,
+          tailwind
+        })
       }
     },
     platforms: {
@@ -125,7 +119,9 @@ export const makeSdTailwindConfig = ({
         files: [
           {
             destination:
-              type !== 'all' ? `${type}.tailwind.js` : 'tailwind.config.js',
+              type !== 'all'
+                ? `${type}.tailwind.js`
+                : `tailwind.config.${formatType}`,
             format: 'tailwindFormat'
           }
         ]

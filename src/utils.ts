@@ -1,4 +1,5 @@
 import { camelCase } from 'camel-case'
+import type { SdTailwindConfigType, TailwindOptions } from './types'
 
 type NestedObj<T extends Record<string, any>> = {
   [P in keyof T]: Record<P, NestedObj<T>> | T[P]
@@ -48,4 +49,31 @@ export const unquoteFromKeys = (json: string, type?: string) => {
   })
 
   return result.replace(/}/g, (match) => joinSpace(match, type))
+}
+
+export const getTemplateConfigByType = (
+  type: SdTailwindConfigType['type'],
+  content: string,
+  darkMode: TailwindOptions['darkMode'],
+  tailwindContent: TailwindOptions['content'],
+  plugins: string[]
+) => {
+  const getTemplateConfig = () => {
+    let config = `{mode: "jit",content: [${tailwindContent}],darkMode: "${darkMode}",theme: {extend: ${unquoteFromKeys(
+      content,
+      type
+    )},},`
+
+    if (plugins.length > 0) {
+      config += `\n plugins: [${plugins}]`
+    }
+
+    config += '\n}'
+
+    return config
+  }
+
+  const configs = `/** @type {import('tailwindcss').Config} */\n module.exports = ${getTemplateConfig()}`
+
+  return configs
 }
