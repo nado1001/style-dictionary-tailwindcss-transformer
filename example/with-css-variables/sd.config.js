@@ -3,6 +3,7 @@ const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
 
 const sdConfig = makeSdTailwindConfig({
   type: 'all',
+  formatType: 'cjs',
   isVariables: true,
   source: [`./style-dictionary/tokens/**/*.json`],
   transforms: ['attribute/cti', 'name/cti/kebab'],
