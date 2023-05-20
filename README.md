@@ -187,6 +187,7 @@ Optional except for `type`.
 | Attribute         | Description                                                                                                                                                                            | Type                |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | type              | Set the name of each theme (colors, fontSize, etc.) for `'all'` or tailwind.                                                                                                           | `'all'` or string   |
+| formatType       | Set the format of the Tailwind CSS configuration file. <br>Default value: `js` | `'js'` `'cjs'`  |
 | isVariables       | Set when using CSS custom variables. <br>Default value: `false` | boolean  |
 | source            | [`source`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: ` ['tokens/**/*.json']`                           | Array of strings    |
 | transforms        | [`platform.transforms`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `['attribute/cti','name/cti/kebab']` | Array of strings    |
