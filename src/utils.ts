@@ -59,10 +59,13 @@ export const getTemplateConfigByType = (
   plugins: string[]
 ) => {
   const getTemplateConfig = () => {
-    let config = `{mode: "jit",content: [${tailwindContent}],darkMode: "${darkMode}",theme: {extend: ${unquoteFromKeys(
-      content,
-      type
-    )},},`
+    let config = `{
+  mode: "jit",
+  content: [${tailwindContent}],
+  darkMode: "${darkMode}",
+  theme: {
+    extend: ${unquoteFromKeys(content, type)},
+  },`
 
     if (plugins.length > 0) {
       config += `\n plugins: [${plugins}]`

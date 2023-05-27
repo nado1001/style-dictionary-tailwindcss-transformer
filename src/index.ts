@@ -6,7 +6,6 @@ import {
   unquoteFromKeys,
   getTemplateConfigByType
 } from './utils'
-import { format } from 'prettier'
 
 const formatTokens = (
   tokens: Dictionary['allTokens'],
@@ -71,11 +70,9 @@ const getTailwindFormat = ({
       plugins
     )
 
-    return format(configs, { parser: 'babel', semi: false })
+    return configs
   } else {
-    return format(`module.exports = ${unquoteFromKeys(content)}`, {
-      parser: 'babel'
-    })
+    return `module.exports = ${unquoteFromKeys(content)}`
   }
 }
 
