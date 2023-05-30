@@ -33,8 +33,8 @@
     "design-system"
   ],
   "devDependencies": {
-    "@commitlint/cli": "17.6.3",
-    "@commitlint/config-conventional": "17.6.3",
+    "@commitlint/cli": "17.6.5",
+    "@commitlint/config-conventional": "17.6.5",
     "@tsconfig/node16": "1.0.4",
     "@types/node": "18.6.5",
     "@types/prettier": "^2.7.2",
