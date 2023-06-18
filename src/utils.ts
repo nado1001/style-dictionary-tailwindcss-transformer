@@ -18,7 +18,13 @@ export const makeNestedObject = <T extends readonly string[]>(
     }
     obj = obj[key]
   }
-  obj[camelCase(keys[lastIndex])] = value
+
+  // https://v2.tailwindcss.com/docs/upgrading-to-v2#update-default-theme-keys-to-default
+  if (keys[lastIndex] === 'DEFAULT') {
+    obj[keys[lastIndex]] = value
+  } else {
+    obj[camelCase(keys[lastIndex])] = value
+  }
 }
 
 export const getConfigValue = <T>(value: T | undefined, defaultValue: T) => {
