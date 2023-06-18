@@ -26,6 +26,13 @@
         medium: "var(--font-size-medium)",
         large: "var(--font-size-large)",
         base: "var(--font-size-base)"
+      },
+      borderRadius: {
+        none: "var(--border-radius-none)",
+        sm: "var(--border-radius-sm)",
+        DEFAULT: "var(--border-radius-default)",
+        lg: "var(--border-radius-lg)",
+        full: "var(--border-radius-full)"
       }
     },
   },

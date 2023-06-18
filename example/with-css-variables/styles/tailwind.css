@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sat, 27 May 2023 05:45:04 GMT
+ * Generated on Sun, 18 Jun 2023 09:44:57 GMT
  */
 
 :root {
@@ -16,4 +16,9 @@
   --font-size-medium: 1rem;
   --font-size-large: 2rem;
   --font-size-base: 1rem;
+  --border-radius-none: 0;
+  --border-radius-sm: .125rem;
+  --border-radius-default: 1rem;
+  --border-radius-lg: .5rem;
+  --border-radius-full: 9999px;
 }
