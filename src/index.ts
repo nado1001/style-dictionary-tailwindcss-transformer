@@ -37,7 +37,7 @@ const formatTokens = (
   return JSON.stringify(result, null, 2)
 }
 
-const getTailwindFormat = ({
+export const getTailwindFormat = ({
   dictionary: { allTokens },
   type,
   isVariables,
