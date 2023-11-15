@@ -1,5 +1,9 @@
-import { camelCase } from 'camel-case'
+import { camelCase } from 'change-case'
 import type { SdObjType, SdTailwindConfigType, TailwindOptions } from './types'
+
+export const addHyphen = (str: string) => {
+  return str.endsWith('-') ? str : `${str}-`
+}
 
 export const makeSdObject = <T extends readonly string[]>(
   obj: SdObjType<{ [key: string]: any }>,

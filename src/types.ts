@@ -1,4 +1,6 @@
-import type { Dictionary, Platform, Config } from 'style-dictionary/types'
+import type { Dictionary } from 'style-dictionary/types/Dictionary'
+import type { Platform } from 'style-dictionary/types/Platform'
+import type { Config } from 'style-dictionary/types/Config'
 import type { Config as TailwindConfig } from 'tailwindcss/types'
 
 export type SdObjType<T extends Record<string, any>> = {
@@ -19,12 +21,13 @@ export type SdTailwindConfigType = {
   source?: Config['source']
   transforms?: Platform['transforms']
   buildPath?: Platform['buildPath']
+  prefix?: Platform['prefix']
   tailwind?: Partial<TailwindOptions>
 }
 
 export type TailwindFormatObjType = Pick<
   SdTailwindConfigType,
-  'type' | 'isVariables' | 'tailwind'
+  'type' | 'isVariables' | 'prefix' | 'tailwind'
 > & {
   dictionary: Dictionary
   formatType: TailwindFormatType

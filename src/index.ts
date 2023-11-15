@@ -1,6 +1,7 @@
 import type { Dictionary, Config } from 'style-dictionary/types'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
+  addHyphen,
   getConfigValue,
   makeSdObject,
   unquoteFromKeys,
@@ -10,7 +11,8 @@ import {
 const formatTokens = (
   tokens: Dictionary['allTokens'],
   type: SdTailwindConfigType['type'],
-  isVariables: SdTailwindConfigType['isVariables']
+  isVariables: SdTailwindConfigType['isVariables'],
+  prefix: SdTailwindConfigType['prefix']
 ) => {
   const allTokenObj = tokens.reduce<Record<string, string>>((acc, cur) => {
     if (cur.attributes === undefined) {
@@ -19,7 +21,9 @@ const formatTokens = (
 
     if (cur.attributes.category === type || type === 'all') {
       if (isVariables) {
-        acc[cur.path.join('.')] = `var(--${cur.name})`
+        acc[cur.path.join('.')] = prefix
+          ? `var(--${addHyphen(prefix) + cur.name})`
+          : `var(--${cur.name})`
       } else {
         acc[cur.path.join('.')] = cur.value
       }
@@ -41,9 +45,10 @@ export const getTailwindFormat = ({
   dictionary: { allTokens },
   type,
   isVariables,
+  prefix,
   tailwind
 }: TailwindFormatObjType) => {
-  const content = formatTokens(allTokens, type, isVariables)
+  const content = formatTokens(allTokens, type, isVariables, prefix)
 
   if (type === 'all') {
     const darkMode = getConfigValue(tailwind?.darkMode, 'class')
@@ -83,6 +88,7 @@ export const makeSdTailwindConfig = ({
   source,
   transforms,
   buildPath,
+  prefix,
   tailwind
 }: SdTailwindConfigType): Config => {
   if (type === undefined) {
@@ -101,6 +107,7 @@ export const makeSdTailwindConfig = ({
           dictionary,
           formatType,
           isVariables,
+          prefix,
           type,
           tailwind
         })
