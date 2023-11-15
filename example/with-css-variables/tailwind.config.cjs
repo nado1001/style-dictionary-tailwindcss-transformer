@@ -8,31 +8,31 @@
       colors: {
         base: {
           gray: {
-            light: "var(--colors-base-gray-light)",
-            medium: "var(--colors-base-gray-medium)",
-            dark: "var(--colors-base-gray-dark)"
+            light: "var(--tw-colors-base-gray-light)",
+            medium: "var(--tw-colors-base-gray-medium)",
+            dark: "var(--tw-colors-base-gray-dark)"
           },
-          red: "var(--colors-base-red)",
-          green: "var(--colors-base-green)"
+          red: "var(--tw-colors-base-red)",
+          green: "var(--tw-colors-base-green)"
         },
         font: {
-          base: "var(--colors-font-base)",
-          secondary: "var(--colors-font-secondary)",
-          tertiary: "var(--colors-font-tertiary)"
+          base: "var(--tw-colors-font-base)",
+          secondary: "var(--tw-colors-font-secondary)",
+          tertiary: "var(--tw-colors-font-tertiary)"
         }
       },
       fontSize: {
-        small: "var(--font-size-small)",
-        medium: "var(--font-size-medium)",
-        large: "var(--font-size-large)",
-        base: "var(--font-size-base)"
+        small: "var(--tw-font-size-small)",
+        medium: "var(--tw-font-size-medium)",
+        large: "var(--tw-font-size-large)",
+        base: "var(--tw-font-size-base)"
       },
       borderRadius: {
-        none: "var(--border-radius-none)",
-        sm: "var(--border-radius-sm)",
-        DEFAULT: "var(--border-radius-default)",
-        lg: "var(--border-radius-lg)",
-        full: "var(--border-radius-full)"
+        none: "var(--tw-border-radius-none)",
+        sm: "var(--tw-border-radius-sm)",
+        DEFAULT: "var(--tw-border-radius-default)",
+        lg: "var(--tw-border-radius-lg)",
+        full: "var(--tw-border-radius-full)"
       }
     },
   },

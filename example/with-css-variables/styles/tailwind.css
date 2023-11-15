@@ -1,24 +1,24 @@
 /**
  * Do not edit directly
- * Generated on Sun, 18 Jun 2023 09:44:57 GMT
+ * Generated on Wed, 15 Nov 2023 12:36:10 GMT
  */
 
 :root {
-  --colors-base-gray-light: #CCCCCC;
-  --colors-base-gray-medium: #999999;
-  --colors-base-gray-dark: #111111;
-  --colors-base-red: #FF0000;
-  --colors-base-green: #00FF00;
-  --colors-font-base: #FF0000;
-  --colors-font-secondary: #00FF00;
-  --colors-font-tertiary: #CCCCCC;
-  --font-size-small: 0.75rem;
-  --font-size-medium: 1rem;
-  --font-size-large: 2rem;
-  --font-size-base: 1rem;
-  --border-radius-none: 0;
-  --border-radius-sm: .125rem;
-  --border-radius-default: 1rem;
-  --border-radius-lg: .5rem;
-  --border-radius-full: 9999px;
+  --tw-colors-base-gray-light: #CCCCCC;
+  --tw-colors-base-gray-medium: #999999;
+  --tw-colors-base-gray-dark: #111111;
+  --tw-colors-base-red: #FF0000;
+  --tw-colors-base-green: #00FF00;
+  --tw-colors-font-base: #FF0000;
+  --tw-colors-font-secondary: #00FF00;
+  --tw-colors-font-tertiary: #CCCCCC;
+  --tw-font-size-small: 0.75rem;
+  --tw-font-size-medium: 1rem;
+  --tw-font-size-large: 2rem;
+  --tw-font-size-base: 1rem;
+  --tw-border-radius-none: 0;
+  --tw-border-radius-sm: .125rem;
+  --tw-border-radius-default: 1rem;
+  --tw-border-radius-lg: .5rem;
+  --tw-border-radius-full: 9999px;
 }
