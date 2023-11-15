@@ -2,7 +2,7 @@ import type { Dictionary, Config } from 'style-dictionary/types'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
   getConfigValue,
-  makeNestedObject,
+  makeSdObject,
   unquoteFromKeys,
   getTemplateConfigByType
 } from './utils'
@@ -31,7 +31,7 @@ const formatTokens = (
   const result = {}
   Object.keys(allTokenObj).forEach((key) => {
     const keys = key.split('.').filter((k) => k !== type)
-    makeNestedObject(result, keys, allTokenObj[key])
+    makeSdObject(result, keys, allTokenObj[key])
   })
 
   return JSON.stringify(result, null, 2)

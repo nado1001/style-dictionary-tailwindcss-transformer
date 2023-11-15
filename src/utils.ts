@@ -1,12 +1,8 @@
 import { camelCase } from 'camel-case'
-import type { SdTailwindConfigType, TailwindOptions } from './types'
+import type { SdObjType, SdTailwindConfigType, TailwindOptions } from './types'
 
-type NestedObj<T extends Record<string, any>> = {
-  [P in keyof T]: Record<P, NestedObj<T>> | T[P]
-}
-
-export const makeNestedObject = <T extends readonly string[]>(
-  obj: NestedObj<{ [key: string]: any }>,
+export const makeSdObject = <T extends readonly string[]>(
+  obj: SdObjType<{ [key: string]: any }>,
   keys: T,
   value: string
 ): void => {

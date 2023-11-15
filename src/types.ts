@@ -1,6 +1,10 @@
 import type { Dictionary, Platform, Config } from 'style-dictionary/types'
 import type { Config as TailwindConfig } from 'tailwindcss/types'
 
+export type SdObjType<T extends Record<string, any>> = {
+  [P in keyof T]: Record<P, SdObjType<T>> | T[P]
+}
+
 export type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
   plugins: Array<
     'typography' | 'forms' | 'aspect-ratio' | 'line-clamp' | 'container-queries'

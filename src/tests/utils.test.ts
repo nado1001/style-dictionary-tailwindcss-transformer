@@ -1,26 +1,32 @@
-import { test, expect } from 'vitest'
-import { getConfigValue, unquoteFromKeys, makeNestedObject } from '../utils'
+import { describe, it, expect } from 'vitest'
+import { getConfigValue, unquoteFromKeys, makeSdObject } from '../utils'
 
-test('getConfigValue', () => {
-  expect(getConfigValue('value', 'default')).toEqual('value')
-  expect(getConfigValue(undefined, 2)).toEqual(2)
+describe('getConfigValue function', () => {
+  it('should return T if T is passed', () => {
+    expect(getConfigValue('value', 'default')).toEqual('value')
+  })
+
+  it('should return defaultValue if T is undefined', () => {
+    expect(getConfigValue(undefined, 2)).toEqual(2)
+  })
 })
 
-test('unquoteFromKeys', () => {
-  const obj = {
-    colors: {
-      base: {
-        gray: {
-          light: '#CCCCCC'
-        },
-        red: '#FF0000',
-        '10x': '#00FF00'
+describe('unquoteFromKeys function', () => {
+  it('should not remove double quotes if the key is only numbers', () => {
+    const obj = {
+      colors: {
+        base: {
+          gray: {
+            light: '#CCCCCC'
+          },
+          red: '#FF0000',
+          '10x': '#00FF00'
+        }
       }
     }
-  }
-  const json = JSON.stringify(obj, null, 2)
+    const json = JSON.stringify(obj, null, 2)
 
-  expect(unquoteFromKeys(json)).toEqual(`{
+    expect(unquoteFromKeys(json)).toEqual(`{
   colors: {
     base: {
       gray: {
@@ -31,24 +37,27 @@ test('unquoteFromKeys', () => {
     }
   }
 }`)
+  })
 })
 
-test('makeNestedObject', () => {
-  const obj: { [key: string]: string } = {
-    'hoge.foo': 'bar',
-    'hoge.fuga': 'baz'
-  }
-
-  const result = {}
-  Object.keys(obj).forEach((key) => {
-    const keys = key.split('.').filter((k) => k !== 'colors')
-    makeNestedObject(result, keys, obj[key])
-  })
-
-  expect(result).toEqual({
-    hoge: {
-      foo: 'bar',
-      fuga: 'baz'
+describe('makeSdObject function', () => {
+  it('should return a nested object if the key is comma-separated', () => {
+    const obj: { [key: string]: string } = {
+      'hoge.foo': 'bar',
+      'hoge.fuga': 'baz'
     }
+
+    const result = {}
+    Object.keys(obj).forEach((key) => {
+      const keys = key.split('.').filter((k) => k !== 'colors')
+      makeSdObject(result, keys, obj[key])
+    })
+
+    expect(result).toEqual({
+      hoge: {
+        foo: 'bar',
+        fuga: 'baz'
+      }
+    })
   })
 })
