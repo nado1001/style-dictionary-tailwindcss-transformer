@@ -1,5 +1,20 @@
 import { describe, it, expect } from 'vitest'
-import { getConfigValue, unquoteFromKeys, makeSdObject } from '../utils'
+import {
+  addHyphen,
+  getConfigValue,
+  unquoteFromKeys,
+  makeSdObject
+} from '../utils'
+
+describe('addHyphen function', () => {
+  it('should add hyphen if the string does not end with hyphen', () => {
+    expect(addHyphen('hoge')).toEqual('hoge-')
+  })
+
+  it('should not add hyphen if the string ends with hyphen', () => {
+    expect(addHyphen('hoge-')).toEqual('hoge-')
+  })
+})
 
 describe('getConfigValue function', () => {
   it('should return T if T is passed', () => {
