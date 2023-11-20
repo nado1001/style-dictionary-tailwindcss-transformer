@@ -1838,9 +1838,9 @@ change-case@^4.1.2:
     tslib "^2.0.3"
 
 change-case@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/change-case/-/change-case-5.1.2.tgz#1a1feb43f88b7595c6e8db44b5a27b24fa8a9ebd"
-  integrity sha512-CAtbGEDulyjzs05RXy3uKcwqeztz/dMEuAc1Xu9NQBsbrhuGMneL0u9Dj5SoutLKBFYun8txxYIwhjtLNfUmCA==
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/change-case/-/change-case-5.2.0.tgz#6054e5400194d1a19fd90e136c2007daba62668d"
+  integrity sha512-L6VzznESnMIKKdKhVzCG+KPz4+x1FWbjOs1AdhoHStV3qo8aySMRGPUoqC0aL1ThKaQNGhAu6ZfHL/QAyQRuiw==
 
 check-error@^1.0.2:
   version "1.0.2"
