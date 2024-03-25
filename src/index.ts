@@ -1,3 +1,4 @@
+// index.ts 
 import type { Dictionary, Config } from 'style-dictionary/types'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
@@ -46,6 +47,7 @@ export const getTailwindFormat = ({
   type,
   isVariables,
   prefix,
+  extend,
   tailwind
 }: TailwindFormatObjType) => {
   const content = formatTokens(allTokens, type, isVariables, prefix)
@@ -72,6 +74,7 @@ export const getTailwindFormat = ({
       content,
       darkMode,
       tailwindContent,
+      extend,
       plugins
     )
 
@@ -85,6 +88,7 @@ export const makeSdTailwindConfig = ({
   type,
   formatType = 'js',
   isVariables = false,
+  extend = true,
   source,
   transforms,
   buildPath,
@@ -107,6 +111,7 @@ export const makeSdTailwindConfig = ({
           dictionary,
           formatType,
           isVariables,
+          extend,
           prefix,
           type,
           tailwind
