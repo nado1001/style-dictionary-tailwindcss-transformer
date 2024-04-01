@@ -1,4 +1,3 @@
-//README
 # Style Dictionary Tailwind CSS Transformer
 
 [![Release](https://badgen.net/github/release/nado1001/sd-tailwindcss-transformer)](https://badgen.net/github/release/nado1001/sd-tailwindcss-transformer)
@@ -192,7 +191,7 @@ Optional except for `type`.
 | type              | Set the name of each theme (colors, fontSize, etc.) for `'all'` or tailwind.                                                                                                           | `'all'` or string                                                                       |
 | formatType        | Set the format of the Tailwind CSS configuration file. <br>Default value: `js`                                                                                                         | `'js'` `'cjs'`                                                                          |
 | isVariables       | Set when using CSS custom variables. <br>Default value: `false`                                                                                                                        | boolean                                                                                 |
-| extend       | Set to add transformed styles to the `'extend'` key within the `'theme'` key or not. <br>Default value: `true`                                                                                                                        | boolean                                                                                 |
+| extend            | Set to add transformed styles to the `'extend'` key within the `'theme'` key or not. <br>Default value: `true`                                                                         | boolean                                                                                 |
 | source            | [`source`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: ` ['tokens/**/*.json']`                           | Array of strings                                                                        |
 | transforms        | [`platform.transforms`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `['attribute/cti','name/cti/kebab']` | Array of strings                                                                        |
 | buildPath         | [`platform.buildPath`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `'build/web/'`                        | string                                                                                  |

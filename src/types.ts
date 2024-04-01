@@ -1,4 +1,3 @@
-//types.ts
 import type { Dictionary } from 'style-dictionary/types/Dictionary'
 import type { Platform } from 'style-dictionary/types/Platform'
 import type { Config } from 'style-dictionary/types/Config'

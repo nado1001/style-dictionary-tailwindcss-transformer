@@ -1,4 +1,3 @@
-//utils.ts
 import { camelCase } from 'change-case'
 import type { SdObjType, SdTailwindConfigType, TailwindOptions } from './types'
 
@@ -66,9 +65,9 @@ export const getTemplateConfigByType = (
   extend: SdTailwindConfigType['extend'],
   plugins: string[]
 ) => {
-  const extendTheme = extend ? 
-  `theme: { extend: ${unquoteFromKeys(content, type)}, },` : 
-  `theme: ${unquoteFromKeys(content, type)},`
+  const extendTheme = extend
+    ? `theme: { extend: ${unquoteFromKeys(content, type)}, },`
+    : `theme: ${unquoteFromKeys(content, type)},`
 
   const getTemplateConfig = () => {
     let config = `{

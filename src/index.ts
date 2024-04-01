@@ -1,4 +1,3 @@
-// index.ts 
 import type { Dictionary, Config } from 'style-dictionary/types'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
