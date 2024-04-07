@@ -1097,10 +1097,10 @@ scheduler@^0.23.0:
   dependencies:
     loose-envify "^1.1.0"
 
-sd-tailwindcss-transformer@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.4.1.tgz#40403243bdaee6b1c78a4d12cc59e2dea3f59075"
-  integrity sha512-g/CbF9vj9zZUGUsj7QrCLckCDLNhG0w+ppssmN+uT/u7FCUV9EPE42uwjVghNBrb0ggqxrZcVoc/4Kl+tqDeSQ==
+sd-tailwindcss-transformer@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.4.2.tgz#e27fe8875a7c4e932a1123235bab9577d0996a14"
+  integrity sha512-vFSahWFeQvxRtjYgcbJMd9s6ILYtAagx6nmFayZymPa7foHmaa8iaJ+63xlplcnI7P17G+9Ji7kofdbFfmDtGA==
 
 sentence-case@^3.0.4:
   version "3.0.4"

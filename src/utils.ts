@@ -35,26 +35,29 @@ export const getConfigValue = <T>(value: T | undefined, defaultValue: T) => {
   return value
 }
 
-const joinSpace = (value: string, type?: string, space = ' '.repeat(4)) => {
+const joinSpace = (value: string, spaceNum: number, type?: string) => {
+  const space = ' '.repeat(spaceNum)
+
   if (type !== 'all') {
     return value
   }
+
   return space + value
 }
 
-export const unquoteFromKeys = (json: string, type?: string) => {
+export const unquoteFromKeys = (json: string, type?: string, spaceNum = 4) => {
   const result = json.replace(/"(\\[^]|[^\\"])*"\s*:?/g, (match) => {
     if (/[0-9]/.test(match) && /[a-zA-Z]/.test(match)) {
       return match
     }
     if (/:$/.test(match)) {
-      return joinSpace(match.replace(/^"|"(?=\s*:$)/g, ''), type)
+      return joinSpace(match.replace(/^"|"(?=\s*:$)/g, ''), spaceNum, type)
     }
 
     return match
   })
 
-  return result.replace(/}/g, (match) => joinSpace(match, type))
+  return result.replace(/}/g, (match) => joinSpace(match, spaceNum, type))
 }
 
 export const getTemplateConfigByType = (
@@ -66,8 +69,10 @@ export const getTemplateConfigByType = (
   plugins: string[]
 ) => {
   const extendTheme = extend
-    ? `theme: { extend: ${unquoteFromKeys(content, type)}, },`
-    : `theme: ${unquoteFromKeys(content, type)},`
+    ? `theme: {
+    extend: ${unquoteFromKeys(content, type, 4)},
+  },`
+    : `theme: ${unquoteFromKeys(content, type, 2)},`
 
   const getTemplateConfig = () => {
     let config = `{
@@ -77,7 +82,7 @@ export const getTemplateConfigByType = (
   ${extendTheme}`
 
     if (plugins.length > 0) {
-      config += `\n plugins: [${plugins}]`
+      config += `\n  plugins: [${plugins}]`
     }
 
     config += '\n}'
@@ -85,7 +90,7 @@ export const getTemplateConfigByType = (
     return config
   }
 
-  const configs = `/** @type {import('tailwindcss').Config} */\n module.exports = ${getTemplateConfig()}`
+  const configs = `/** @type {import('tailwindcss').Config} */\nmodule.exports = ${getTemplateConfig()}`
 
   return configs
 }
