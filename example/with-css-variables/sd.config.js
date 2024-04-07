@@ -9,6 +9,7 @@ const sdConfig = makeSdTailwindConfig({
   formatType: 'cjs',
   isVariables: true,
   prefix: PREFIX,
+  extend: true,
   source: [`./style-dictionary/tokens/**/*.json`],
   transforms: ['attribute/cti', 'name/cti/kebab'],
   buildPath: `./`,
