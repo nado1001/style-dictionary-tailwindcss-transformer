@@ -62,16 +62,19 @@ export const getTemplateConfigByType = (
   content: string,
   darkMode: TailwindOptions['darkMode'],
   tailwindContent: TailwindOptions['content'],
+  extend: SdTailwindConfigType['extend'],
   plugins: string[]
 ) => {
+  const extendTheme = extend
+    ? `theme: { extend: ${unquoteFromKeys(content, type)}, },`
+    : `theme: ${unquoteFromKeys(content, type)},`
+
   const getTemplateConfig = () => {
     let config = `{
   mode: "jit",
   content: [${tailwindContent}],
   darkMode: "${darkMode}",
-  theme: {
-    extend: ${unquoteFromKeys(content, type)},
-  },`
+  ${extendTheme}`
 
     if (plugins.length > 0) {
       config += `\n plugins: [${plugins}]`

@@ -23,11 +23,12 @@ export type SdTailwindConfigType = {
   buildPath?: Platform['buildPath']
   prefix?: Platform['prefix']
   tailwind?: Partial<TailwindOptions>
+  extend?: boolean
 }
 
 export type TailwindFormatObjType = Pick<
   SdTailwindConfigType,
-  'type' | 'isVariables' | 'prefix' | 'tailwind'
+  'type' | 'isVariables' | 'prefix' | 'tailwind' | 'extend'
 > & {
   dictionary: Dictionary
   formatType: TailwindFormatType
