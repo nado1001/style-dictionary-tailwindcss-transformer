@@ -20,7 +20,7 @@ $ yarn add sd-tailwindcss-transformer
 
 ### Creating configuration file
 
-Generate `tailwind.config.js` by setting type to `all`.  
+Generate `tailwind.config.js` by setting type to `all`.
 See [Creating each theme file](https://github.com/nado1001/sd-tailwindcss-transformer#creating-each-theme-file) if you wish to customize the configuration file with [plugin functions](https://tailwindcss.com/docs/plugins), etc.
 
 ```js
@@ -64,7 +64,7 @@ module.exports = {
 
 ### Creating each [theme](https://tailwindcss.com/docs/configuration#theme) file
 
-Create an object for each theme, assuming that various customizations will be made in the configuration file.  
+Create an object for each theme, assuming that various customizations will be made in the configuration file.
 Import and use the created files in `tailwind.config.js`.
 
 ```js
@@ -106,7 +106,7 @@ module.exports = {
 
 ### Using CSS custom variables
 
-CSS custom variables can be used by setting isVariables to `true`.  
+CSS custom variables can be used by setting isVariables to `true`.
 In this case, a CSS file must also be generated.
 
 ```js
@@ -186,19 +186,19 @@ Please see [Example](https://github.com/nado1001/sd-tailwindcss-transformer/tree
 
 Optional except for `type`.
 
-| Attribute         | Description                                                                                                                                                                            | Type                                                                                    |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| type              | Set the name of each theme (colors, fontSize, etc.) for `'all'` or tailwind.                                                                                                           | `'all'` or string                                                                       |
-| formatType        | Set the format of the Tailwind CSS configuration file. <br>Default value: `js`                                                                                                         | `'js'` `'cjs'`                                                                          |
-| isVariables       | Set when using CSS custom variables. <br>Default value: `false`                                                                                                                        | boolean                                                                                 |
-| extend            | Set to add transformed styles to the `'extend'` key within the `'theme'` key or not. <br>Default value: `true`                                                                         | boolean                                                                                 |
-| source            | [`source`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: ` ['tokens/**/*.json']`                           | Array of strings                                                                        |
-| transforms        | [`platform.transforms`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `['attribute/cti','name/cti/kebab']` | Array of strings                                                                        |
-| buildPath         | [`platform.buildPath`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `'build/web/'`                        | string                                                                                  |
-| prefix            | [`platform.prefix`](https://github.com/amzn/style-dictionary/blob/main/types/Platform.d.ts#L21) attribute of style-dictionary.<br>Valid when using css variables (isVariables: true)   | string                                                                                  |
-| tailwind.content  | [Content](https://tailwindcss.com/docs/content-configuration) attribute of Tailwind CSS. Set if necessary when 'all' is set in type. <br>Default value: `['./src/**/*.{ts,tsx}']`      | Array of strings                                                                        |
-| tailwind.darkMode | [Dark Mode](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) attribute of Tailwind CSS. Set if necessary when 'all' is set in type. <br>Default value: `'class'`    | `'media'` `'class'`                                                                     |
-| tailwind.plugin   | Tailwind CSS [official plugins](https://tailwindcss.com/docs/plugins#official-plugins). Set if necessary when 'all' is set in type.                                                    | Array of `'typography'` `'forms'` `'aspect-ratio'` `'line-clamp'` `'container-queries'` |
+| Attribute         | Description                                                                                                                                                                            | Type                                                                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| type              | Set the name of each theme (colors, fontSize, etc.) for `'all'` or tailwind.                                                                                                           | `'all'` or string                                                                                                                      |
+| formatType        | Set the format of the Tailwind CSS configuration file. <br>Default value: `js`                                                                                                         | `'js'` `'cjs'`                                                                                                                         |
+| isVariables       | Set when using CSS custom variables. <br>Default value: `false`                                                                                                                        | boolean                                                                                                                                |
+| extend            | Set to add transformed styles to the `'extend'` key within the `'theme'` key or not. <br>Default value: `true`                                                                         | boolean                                                                                                                                |
+| source            | [`source`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `['tokens/**/*.json']`                            | Array of strings                                                                                                                       |
+| transforms        | [`platform.transforms`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `['attribute/cti','name/cti/kebab']` | Array of strings                                                                                                                       |
+| buildPath         | [`platform.buildPath`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `'build/web/'`                        | string                                                                                                                                 |
+| prefix            | [`platform.prefix`](https://github.com/amzn/style-dictionary/blob/main/types/Platform.d.ts#L21) attribute of style-dictionary.<br>Valid when using css variables (isVariables: true)   | string                                                                                                                                 |
+| tailwind.content  | [Content](https://tailwindcss.com/docs/content-configuration) attribute of Tailwind CSS. Set if necessary when 'all' is set in type. <br>Default value: `['./src/**/*.{ts,tsx}']`      | Array of strings                                                                                                                       |
+| tailwind.darkMode | [Dark Mode](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) attribute of Tailwind CSS. Set if necessary when 'all' is set in type. <br>Default value: `'class'`    | `'media'` `'class'`                                                                                                                    |
+| tailwind.plugin   | Tailwind CSS [official plugins](https://tailwindcss.com/docs/plugins#official-plugins). Set if necessary when 'all' is set in type.                                                    | Array of `'typography'` `['typography', options]` `'forms'` `['forms', options]` `'aspect-ratio'` `'line-clamp'` `'container-queries'` |
 
 ## License
 

@@ -9,7 +9,7 @@ export type SdObjType<T extends Record<string, any>> = {
 
 export type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
   plugins: Array<
-    'typography' | 'forms' | 'aspect-ratio' | 'line-clamp' | 'container-queries'
+    'typography' | ['typography', { className?: string, target?: 'modern' | 'legacy' }] | 'forms' | ['forms', { strategy?: 'base' | 'class' }] | 'aspect-ratio' | 'line-clamp' | 'container-queries'
   >
 }
 export type TailwindFormatType = 'js' | 'cjs'
