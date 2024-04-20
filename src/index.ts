@@ -21,11 +21,11 @@ const formatTokens = (
 
     if (cur.attributes.category === type || type === 'all') {
       if (isVariables) {
-        acc[cur.path.join('.')] = prefix
+        acc[Object.values(cur.attributes).join('.')] = prefix
           ? `var(--${addHyphen(prefix) + cur.name})`
           : `var(--${cur.name})`
       } else {
-        acc[cur.path.join('.')] = cur.value
+        acc[Object.values(cur.attributes).join('.')] = cur.value
       }
     }
 
