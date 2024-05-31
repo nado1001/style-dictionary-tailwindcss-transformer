@@ -20,7 +20,11 @@ const formatTokens = (
     }
 
     if (cur.attributes.category === type || type === 'all') {
-      if (isVariables) {
+      /**
+       * Make sure screens values are not using CSS variables as
+       * CSS @media queries do not support CSS variables
+       */
+      if (isVariables && cur.attributes.category !== 'screens') {
         acc[Object.values(cur.attributes).join('.')] = prefix
           ? `var(--${addHyphen(prefix) + cur.name})`
           : `var(--${cur.name})`
