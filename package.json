@@ -48,7 +48,7 @@
     "eslint-plugin-import": "2.29.1",
     "husky": "8.0.3",
     "prettier": "2.8.8",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.8",
     "semantic-release": "21.1.2",
     "style-dictionary": "3.9.1",
     "tailwindcss": "3.4.0",
