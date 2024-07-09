@@ -1103,9 +1103,9 @@ scheduler@^0.23.0:
     loose-envify "^1.1.0"
 
 sd-tailwindcss-transformer@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.4.2.tgz#e27fe8875a7c4e932a1123235bab9577d0996a14"
-  integrity sha512-vFSahWFeQvxRtjYgcbJMd9s6ILYtAagx6nmFayZymPa7foHmaa8iaJ+63xlplcnI7P17G+9Ji7kofdbFfmDtGA==
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.4.6.tgz#10f56ee95331b785b07fde7960803379da0f0225"
+  integrity sha512-xp1mcz+CgfiVqRMi312m7JwliOgjBji7d65k5N36hmqRl3hxXSnMCGuIQ10cAh0XgbVoZzr8pyhqJbuDpC0DPg==
 
 sentence-case@^3.0.4:
   version "3.0.4"
