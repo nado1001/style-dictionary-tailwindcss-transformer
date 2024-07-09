@@ -7,7 +7,7 @@
     "build": "node sd.config.js"
   },
   "devDependencies": {
-    "sd-tailwindcss-transformer": "1.4.1",
+    "sd-tailwindcss-transformer": "1.4.6",
     "style-dictionary": "3.9.1"
   }
 }
