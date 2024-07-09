@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "0.1.1",
-    "@tailwindcss/typography": "0.5.10",
+    "@tailwindcss/typography": "0.5.13",
     "@types/node": "18.19.4",
     "@types/react": "18.2.46",
     "@types/react-dom": "18.2.18",
