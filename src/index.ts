@@ -108,17 +108,19 @@ export const makeSdTailwindConfig = ({
 
   return {
     source: getConfigValue(source, ['tokens/**/*.json']),
-    format: {
-      tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
-        return getTailwindFormat({
-          dictionary,
-          formatType,
-          isVariables,
-          extend,
-          prefix,
-          type,
-          tailwind
-        })
+    hooks: {
+      formats: {
+        tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
+          return getTailwindFormat({
+            dictionary,
+            formatType,
+            isVariables,
+            extend,
+            prefix,
+            type,
+            tailwind
+          })
+        }
       }
     },
     platforms: {
