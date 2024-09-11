@@ -97,7 +97,8 @@ export const makeSdTailwindConfig = ({
   transforms,
   buildPath,
   prefix,
-  tailwind
+  tailwind,
+  preprocessors
 }: SdTailwindConfigType): Config => {
   if (type === undefined) {
     throw new Error('type is required')
@@ -108,6 +109,7 @@ export const makeSdTailwindConfig = ({
   }
 
   return {
+    preprocessors,
     source: getConfigValue(source, ['tokens/**/*.json']),
     hooks: {
       formats: {

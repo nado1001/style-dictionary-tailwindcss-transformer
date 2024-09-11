@@ -24,6 +24,7 @@ export type SdTailwindConfigType = {
   formatType?: TailwindFormatType
   isVariables?: boolean
   source?: Config['source']
+  preprocessors?: Config['preprocessors']
   transforms?: PlatformConfig['transforms']
   buildPath?: PlatformConfig['buildPath']
   prefix?: PlatformConfig['prefix']
