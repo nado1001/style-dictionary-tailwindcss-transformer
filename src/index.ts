@@ -128,7 +128,7 @@ export const makeSdTailwindConfig = ({
       [type !== 'all' ? `tailwind/${type}` : 'tailwind']: {
         transforms: getConfigValue(transforms, [
           'attribute/cti',
-          'name/cti/kebab'
+          'name/kebab'
         ]),
         buildPath: getConfigValue(buildPath, 'build/web/'),
         files: [
