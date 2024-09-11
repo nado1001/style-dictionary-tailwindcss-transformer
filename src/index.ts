@@ -108,6 +108,11 @@ export const makeSdTailwindConfig = ({
     throw new Error('formatType must be "js" or "cjs"')
   }
 
+  const destination =
+      type !== 'all'
+          ? `${type}.tailwind.${formatType}`
+          : `tailwind.config.${formatType}`
+
   return {
     preprocessors,
     source: getConfigValue(source, ['tokens/**/*.json']),
@@ -135,10 +140,7 @@ export const makeSdTailwindConfig = ({
         buildPath: getConfigValue(buildPath, 'build/web/'),
         files: [
           {
-            destination:
-              type !== 'all'
-                ? `${type}.tailwind.js`
-                : `tailwind.config.${formatType}`,
+            destination,
             format: 'tailwindFormat'
           }
         ]
