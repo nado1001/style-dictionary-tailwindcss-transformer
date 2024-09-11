@@ -1,4 +1,5 @@
-import type { Dictionary, Config } from 'style-dictionary/types'
+import type { Dictionary } from 'style-dictionary/types/DesignToken'
+import type { Config } from 'style-dictionary/types/Config'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
   addHyphen,
@@ -108,17 +109,19 @@ export const makeSdTailwindConfig = ({
 
   return {
     source: getConfigValue(source, ['tokens/**/*.json']),
-    format: {
-      tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
-        return getTailwindFormat({
-          dictionary,
-          formatType,
-          isVariables,
-          extend,
-          prefix,
-          type,
-          tailwind
-        })
+    hooks: {
+      formats: {
+        tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
+          return getTailwindFormat({
+            dictionary,
+            formatType,
+            isVariables,
+            extend,
+            prefix,
+            type,
+            tailwind
+          })
+        }
       }
     },
     platforms: {
