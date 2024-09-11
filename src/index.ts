@@ -30,7 +30,7 @@ const formatTokens = (
           ? `var(--${addHyphen(prefix) + cur.name})`
           : `var(--${cur.name})`
       } else {
-        acc[Object.values(cur.attributes).join('.')] = cur.value
+        acc[Object.values(cur.attributes).join('.')] = cur["$value"] || cur["value"]
       }
     }
 
