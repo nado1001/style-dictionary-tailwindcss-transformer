@@ -27,11 +27,11 @@ See [Creating each theme file](https://github.com/nado1001/sd-tailwindcss-transf
 import StyleDictionary from 'style-dictionary';
 import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
 
-const StyleDictionaryTailwind = new StyleDictionary(
+const styleDictionaryTailwind = new StyleDictionary(
     makeSdTailwindConfig({ type: 'all' }),
 );
 await styleDictionaryTailwind.hasInitialized;
-await StyleDictionaryTailwind.buildAllPlatforms();
+await styleDictionaryTailwind.buildAllPlatforms();
 ```
 
 Output:
@@ -135,11 +135,11 @@ sdConfig.platforms['css'] = {
     ],
 };
 
-const StyleDictionaryTailwind = new StyleDictionary(
+const styleDictionaryTailwind = new StyleDictionary(
     makeSdTailwindConfig({ type: 'all' }),
 );
 await styleDictionaryTailwind.hasInitialized;
-await StyleDictionaryTailwind.buildAllPlatforms();
+await styleDictionaryTailwind.buildAllPlatforms();
 ```
 
 Output:
