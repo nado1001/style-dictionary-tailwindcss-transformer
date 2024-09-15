@@ -6546,10 +6546,10 @@ strip-literal@^1.0.1:
   dependencies:
     acorn "^8.8.2"
 
-style-dictionary@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-4.1.0.tgz#17ca6ae002470c7e8a4c3fa31f4eee1017b39152"
-  integrity sha512-DfY64t/XsL0bycnabIcIna/H1GyjK4sKLui2t0q6flr2uM+VpRNoSNCPOpi5YSouhKEFjoiC6ediyrMzraTz8A==
+style-dictionary@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-4.1.1.tgz#84ad626aa14b3ff8a38d899c95a6b01145d78f47"
+  integrity sha512-NMHRE5TleL4vRux0k3BKR8kafmn+sz3w2zVBEgGfEdw+vhKfGX5TdeiOjhnm69/HrTeYUsY8J+7jnFf8RjoHiw==
   dependencies:
     "@bundled-es-modules/deepmerge" "^4.3.1"
     "@bundled-es-modules/glob" "^10.4.2"
