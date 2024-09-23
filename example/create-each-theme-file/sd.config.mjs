@@ -1,14 +1,14 @@
-const StyleDictionaryModule = require('style-dictionary')
-const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
+import StyleDictionaryModule from 'style-dictionary'
+import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer'
 
 StyleDictionaryModule.registerTransform({
   type: `value`,
   transitive: true,
   name: `tailwind/font/px`,
-  matcher: function (token) {
+  filter: function (token) {
     return token.attributes.category === 'fontSize'
   },
-  transformer: function ({ value }) {
+  transform: function ({ value }) {
     if (value.indexOf('px') !== -1) {
       return value
     }
@@ -20,10 +20,10 @@ StyleDictionaryModule.registerTransform({
 const types = ['colors', 'fontSize']
 
 types.map((type) => {
-  const StyleDictionary = StyleDictionaryModule.extend(
+  const StyleDictionary = new StyleDictionaryModule(
     makeSdTailwindConfig({
       type,
-      transforms: ['attribute/cti', 'name/cti/kebab', 'tailwind/font/px']
+      transforms: ['attribute/cti', 'name/kebab', 'tailwind/font/px']
     })
   )
 

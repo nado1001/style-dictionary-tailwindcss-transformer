@@ -1,5 +1,5 @@
-const StyleDictionaryModule = require('style-dictionary')
-const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
+import StyleDictionaryModule from 'style-dictionary'
+import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer'
 // const { makeSdTailwindConfig } = require('../../dist')
 
 const PREFIX = 'tw-'
@@ -11,7 +11,7 @@ const sdConfig = makeSdTailwindConfig({
   prefix: PREFIX,
   extend: true,
   source: [`./style-dictionary/tokens/**/*.json`],
-  transforms: ['attribute/cti', 'name/cti/kebab'],
+  transforms: ['attribute/cti', 'name/kebab'],
   buildPath: `./`,
   tailwind: {
     content: [
@@ -34,5 +34,6 @@ sdConfig.platforms['css'] = {
   ]
 }
 
-const StyleDictionary = StyleDictionaryModule.extend(sdConfig)
-StyleDictionary.buildAllPlatforms()
+const StyleDictionary = new StyleDictionaryModule(sdConfig)
+await StyleDictionary.hasInitialized
+await StyleDictionary.buildAllPlatforms()

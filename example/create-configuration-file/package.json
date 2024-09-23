@@ -1,13 +1,13 @@
 {
   "name": "create-configuration-file",
   "version": "1.0.0",
-  "main": "sd.config.js",
+  "main": "sd.config.mjs",
   "license": "MIT",
   "scripts": {
-    "build": "node sd.config.js"
+    "build": "node sd.config.mjs"
   },
   "devDependencies": {
-    "sd-tailwindcss-transformer": "1.4.6",
-    "style-dictionary": "3.9.2"
+    "sd-tailwindcss-transformer": "^2.0.0",
+    "style-dictionary": "^4.1.2"
   }
 }
