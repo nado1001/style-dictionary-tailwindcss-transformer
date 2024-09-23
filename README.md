@@ -20,6 +20,9 @@ $ yarn add sd-tailwindcss-transformer
 
 ### Creating configuration file
 
+> [!WARNING]
+> If you are using v3 of style-dictionary, install [v1.4.6](https://github.com/nado1001/style-dictionary-tailwindcss-transformer/tree/v1.4.6)
+
 Generate `tailwind.config.js` by setting type to `all`.
 See [Creating each theme file](https://github.com/nado1001/sd-tailwindcss-transformer#creating-each-theme-file) if you wish to customize the configuration file with [plugin functions](https://tailwindcss.com/docs/plugins), etc.
 
