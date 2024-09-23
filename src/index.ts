@@ -1,4 +1,5 @@
-import type { Dictionary, Config } from 'style-dictionary/types'
+import type { Dictionary } from 'style-dictionary/types/DesignToken'
+import type { Config } from 'style-dictionary/types/Config'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
   addHyphen,
@@ -29,7 +30,7 @@ const formatTokens = (
           ? `var(--${addHyphen(prefix) + cur.name})`
           : `var(--${cur.name})`
       } else {
-        acc[Object.values(cur.attributes).join('.')] = cur.value
+        acc[Object.values(cur.attributes).join('.')] = cur["$value"] || cur["value"]
       }
     }
 
@@ -96,7 +97,8 @@ export const makeSdTailwindConfig = ({
   transforms,
   buildPath,
   prefix,
-  tailwind
+  tailwind,
+  preprocessors
 }: SdTailwindConfigType): Config => {
   if (type === undefined) {
     throw new Error('type is required')
@@ -106,34 +108,39 @@ export const makeSdTailwindConfig = ({
     throw new Error('formatType must be "js" or "cjs"')
   }
 
+  const destination =
+      type !== 'all'
+          ? `${type}.tailwind.${formatType}`
+          : `tailwind.config.${formatType}`
+
   return {
+    preprocessors,
     source: getConfigValue(source, ['tokens/**/*.json']),
-    format: {
-      tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
-        return getTailwindFormat({
-          dictionary,
-          formatType,
-          isVariables,
-          extend,
-          prefix,
-          type,
-          tailwind
-        })
+    hooks: {
+      formats: {
+        tailwindFormat: ({ dictionary }: { dictionary: Dictionary }) => {
+          return getTailwindFormat({
+            dictionary,
+            formatType,
+            isVariables,
+            extend,
+            prefix,
+            type,
+            tailwind
+          })
+        }
       }
     },
     platforms: {
       [type !== 'all' ? `tailwind/${type}` : 'tailwind']: {
         transforms: getConfigValue(transforms, [
           'attribute/cti',
-          'name/cti/kebab'
+          'name/kebab'
         ]),
         buildPath: getConfigValue(buildPath, 'build/web/'),
         files: [
           {
-            destination:
-              type !== 'all'
-                ? `${type}.tailwind.js`
-                : `tailwind.config.${formatType}`,
+            destination,
             format: 'tailwindFormat'
           }
         ]

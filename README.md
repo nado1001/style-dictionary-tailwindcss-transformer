@@ -24,14 +24,14 @@ Generate `tailwind.config.js` by setting type to `all`.
 See [Creating each theme file](https://github.com/nado1001/sd-tailwindcss-transformer#creating-each-theme-file) if you wish to customize the configuration file with [plugin functions](https://tailwindcss.com/docs/plugins), etc.
 
 ```js
-const StyleDictionaryModule = require('style-dictionary')
-const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
+import StyleDictionary from 'style-dictionary';
+import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
 
-const StyleDictionary = StyleDictionaryModule.extend(
-  makeSdTailwindConfig({ type: 'all' })
-)
-
-StyleDictionary.buildAllPlatforms()
+const styleDictionaryTailwind = new StyleDictionary(
+    makeSdTailwindConfig({ type: 'all' }),
+);
+await styleDictionaryTailwind.hasInitialized;
+await styleDictionaryTailwind.buildAllPlatforms();
 ```
 
 Output:
@@ -68,18 +68,21 @@ Create an object for each theme, assuming that various customizations will be ma
 Import and use the created files in `tailwind.config.js`.
 
 ```js
-const StyleDictionaryModule = require('style-dictionary')
-const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
+import StyleDictionary from 'style-dictionary';
+import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
 
-const types = ['colors', 'fontSize']
+const types = ['colors', 'fontSize'];
 
-types.map((type) => {
-  const StyleDictionary = StyleDictionaryModule.extend(
-    makeSdTailwindConfig({ type })
-  )
+for (const type of types) {
+    let tailwindConfig = makeSdTailwindConfig({
+        type,
+    });
 
-  StyleDictionary.buildAllPlatforms()
-})
+    const styleDictionaryTailwind = new StyleDictionary(tailwindConfig);
+
+    await styleDictionaryTailwind.hasInitialized;
+    await styleDictionaryTailwind.buildAllPlatforms();
+}
 ```
 
 Output:
@@ -110,30 +113,33 @@ CSS custom variables can be used by setting isVariables to `true`.
 In this case, a CSS file must also be generated.
 
 ```js
-const StyleDictionaryModule = require('style-dictionary')
-const { makeSdTailwindConfig } = require('sd-tailwindcss-transformer')
+import StyleDictionary from 'style-dictionary';
+import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
 
 const sdConfig = makeSdTailwindConfig({
-  type: 'all',
-  isVariables: true
-})
+    type: 'all',
+    isVariables: true,
+});
 
 sdConfig.platforms['css'] = {
-  transformGroup: 'css',
-  buildPath: './styles/',
-  files: [
-    {
-      destination: 'tailwind.css',
-      format: 'css/variables',
-      options: {
-        outputReferences: true
-      }
-    }
-  ]
-}
+    transformGroup: 'css',
+    buildPath: './styles/',
+    files: [
+        {
+            destination: 'tailwind.css',
+            format: 'css/variables',
+            options: {
+                outputReferences: true,
+            },
+        },
+    ],
+};
 
-const StyleDictionary = StyleDictionaryModule.extend(sdConfig)
-StyleDictionary.buildAllPlatforms()
+const styleDictionaryTailwind = new StyleDictionary(
+    makeSdTailwindConfig({ type: 'all' }),
+);
+await styleDictionaryTailwind.hasInitialized;
+await styleDictionaryTailwind.buildAllPlatforms();
 ```
 
 Output:
