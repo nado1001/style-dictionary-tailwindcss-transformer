@@ -40,7 +40,7 @@ const formatTokens = (
   const result = {}
   Object.keys(allTokenObj).forEach((key) => {
     const keys = key.split('.').filter((k) => k !== type)
-    makeSdObject(result, keys, allTokenObj[key])
+    makeSdObject(result, keys, allTokenObj[key], keys[0] !== 'typography')
   })
 
   return JSON.stringify(result, null, 2)
