@@ -8,11 +8,17 @@ export const addHyphen = (str: string) => {
 export const makeSdObject = <T extends readonly string[]>(
   obj: SdObjType<{ [key: string]: any }>,
   keys: T,
-  value: string
+  value: string,
+  setCasing: boolean
 ): void => {
   const lastIndex = keys.length - 1
   for (let i = 0; i < lastIndex; ++i) {
-    const key = camelCase(keys[i])
+    let key = keys[i];
+
+    if (setCasing) {
+      key = camelCase(keys[i]);
+    }
+
     if (!(key in obj)) {
       obj[key] = {}
     }
@@ -21,6 +27,10 @@ export const makeSdObject = <T extends readonly string[]>(
 
   // https://v2.tailwindcss.com/docs/upgrading-to-v2#update-default-theme-keys-to-default
   if (keys[lastIndex] === 'DEFAULT') {
+    setCasing = false;
+  }
+
+  if (!setCasing) {
     obj[keys[lastIndex]] = value
   } else {
     obj[camelCase(keys[lastIndex])] = value
