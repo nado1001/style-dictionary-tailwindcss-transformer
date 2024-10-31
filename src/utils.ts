@@ -9,7 +9,7 @@ export const makeSdObject = <T extends readonly string[]>(
   obj: SdObjType<{ [key: string]: any }>,
   keys: T,
   value: string,
-  setCasing: boolean
+  setCasing = true
 ): void => {
   const lastIndex = keys.length - 1
   for (let i = 0; i < lastIndex; ++i) {
