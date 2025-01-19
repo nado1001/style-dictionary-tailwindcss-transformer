@@ -75,4 +75,40 @@ describe('makeSdObject function', () => {
       }
     })
   })
+
+  it('should camelCase values when setCasing is not given', () => {
+    const obj: { [key: string]: string } = {
+      'foo.foo-bar': 'bar',
+    }
+
+    const result = {}
+    Object.keys(obj).forEach((key) => {
+      const keys = key.split('.').filter((k) => k !== 'colors')
+      makeSdObject(result, keys, obj[key])
+    })
+
+    expect(result).toEqual({
+      foo: {
+        fooBar: 'bar'
+      }
+    })
+  })
+
+  it('should not camelCase when setCasing is set to false', () => {
+    const obj: { [key: string]: string } = {
+      'typography.foo-bar': 'bar',
+    }
+
+    const result = {}
+    Object.keys(obj).forEach((key) => {
+      const keys = key.split('.').filter((k) => k !== 'colors')
+      makeSdObject(result, keys, obj[key], false)
+    })
+
+    expect(result).toEqual({
+      typography: {
+        'foo-bar': 'bar'
+      }
+    })
+  })
 })
