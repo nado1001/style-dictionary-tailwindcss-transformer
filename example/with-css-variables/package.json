@@ -14,7 +14,7 @@
   "devDependencies": {
     "@tailwindcss/container-queries": "0.1.1",
     "@tailwindcss/typography": "0.5.16",
-    "@types/node": "18.19.119",
+    "@types/node": "18.19.120",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "autoprefixer": "10.4.21",
