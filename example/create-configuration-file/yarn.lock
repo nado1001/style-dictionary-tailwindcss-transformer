@@ -832,9 +832,9 @@ safe-regex-test@^1.1.0:
     is-regex "^1.2.1"
 
 sd-tailwindcss-transformer@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-2.0.0.tgz#3af7051e66a881ecd89fb6c6b9f5d8ebe4c0e3ba"
-  integrity sha512-pFifCvawV1zD0+pghctfIBSD4yq1zFhVN8UXvao3jjm+D61DcsT5cJwmZABZVVAu8zyvDONg1fcOQRi9hDkZOg==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-2.1.0.tgz#ce7a37436c1424ad62834fc2af3a36c11ef2b043"
+  integrity sha512-G2GvBSJH/MQ2q+15KlblTp5p02oc87dgJb0AjSmylEjBHazdB2naZsvZlKFhaj/1xqqb4vNytvXdMlZQBX1s9Q==
 
 semver@^7.5.3:
   version "7.6.3"
