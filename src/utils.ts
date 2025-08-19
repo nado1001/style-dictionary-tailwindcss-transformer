@@ -86,7 +86,6 @@ export const getTemplateConfigByType = (
 
   const getTemplateConfig = () => {
     let config = `{
-  mode: "jit",
   content: [${tailwindContent}],
   darkMode: "${darkMode}",
   ${extendTheme}`
