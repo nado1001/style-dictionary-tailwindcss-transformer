@@ -1,5 +1,4 @@
-import type { Dictionary } from 'style-dictionary/types/DesignToken'
-import type { Config } from 'style-dictionary/types/Config'
+import type { Config, Dictionary } from 'style-dictionary/types'
 import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
 import {
   addHyphen,
