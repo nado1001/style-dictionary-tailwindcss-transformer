@@ -43,7 +43,6 @@ Output:
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
   theme: {
@@ -167,7 +166,6 @@ Output:
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
   theme: {
