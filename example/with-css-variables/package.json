@@ -7,21 +7,21 @@
     "build:sd": "node sd.config.mjs"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "next": "^15.5.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "0.1.1",
     "@tailwindcss/typography": "0.5.16",
     "@types/node": "18.19.124",
-    "@types/react": "18.3.24",
-    "@types/react-dom": "18.3.7",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "autoprefixer": "10.4.21",
     "postcss": "8.5.6",
     "sd-tailwindcss-transformer": "^2.0.0",
     "style-dictionary": "^4.1.2",
     "tailwindcss": "3.4.17",
-    "typescript": "4.9.5"
+    "typescript": "^5.9.2"
   }
 }
