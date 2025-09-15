@@ -10,7 +10,7 @@
       "value": "2rem"
     },
     "base": {
-      "value": "{fontSize.medium.value}"
+      "value": "{fontSize.medium}"
     }
   }
 }

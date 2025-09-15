@@ -1,6 +1,6 @@
 import StyleDictionaryModule from 'style-dictionary'
 import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer'
-// const { makeSdTailwindConfig } = require('../../dist')
+// import { makeSdTailwindConfig } from '../../dist/index.js'
 
 const PREFIX = 'tw-'
 
