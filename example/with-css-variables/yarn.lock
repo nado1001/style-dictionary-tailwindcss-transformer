@@ -1218,9 +1218,9 @@ scheduler@^0.26.0:
   integrity sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==
 
 sd-tailwindcss-transformer@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-2.2.0.tgz#114ff47f2ec287633fcce8888e99f9e71dae9489"
-  integrity sha512-jrCgUabUeg6xLi3YzpEZR7CdONjz34Y5YDCDbQAS4fpmjMBLh25ebpgivtZinhRG409jPZhccSx8uJL2rNN0MQ==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-2.2.1.tgz#74844f40c2497dc24486f8f622f594f6ed7da97b"
+  integrity sha512-EYpj0rLyqNmHkhwoOS29q7JDsUZH2DFKsmyMdpUWzA63Wc1bPAXMcqUiicy4GEl9azpPyNata9+UMmJUajrWqw==
 
 semver@^7.7.2:
   version "7.7.3"
