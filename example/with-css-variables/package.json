@@ -18,7 +18,7 @@
     "@types/node": "18.19.130",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "postcss": "8.5.6",
+    "postcss": "8.5.10",
     "sd-tailwindcss-transformer": "^2.2.0",
     "style-dictionary": "^5.0.4",
     "tailwindcss": "^4.1.13",
