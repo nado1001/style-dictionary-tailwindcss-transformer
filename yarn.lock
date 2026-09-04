@@ -1387,10 +1387,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
-"@tsconfig/node22@^22.0.2":
-  version "22.0.6"
-  resolved "https://registry.yarnpkg.com/@tsconfig/node22/-/node22-22.0.6.tgz#43d46cfd2f492d19aa4f2fe75ecb81635c018aeb"
-  integrity sha512-/5thavHAnWDZwH2H6eEn/T8pBEBhtuKaWGMslsj82kJfvzQgOgEMK7X4goBbIUjgVtAzPTtM9Ml64LA0uxO6Iw==
+"@tsconfig/node24@^24.0.0":
+  version "24.0.5"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node24/-/node24-24.0.5.tgz#27499f530fe67ad7b3405af29f52331dae357435"
+  integrity sha512-DWC54fGPuhZgg3Ighg4Y/A/bA3ZdB5hnzAuv/MkQ/X85sVsBsMQxu8t7khutdYeiNksBbFdDyeqv1HSW2Zl8aA==
 
 "@tufjs/canonical-json@2.0.0":
   version "2.0.0"
