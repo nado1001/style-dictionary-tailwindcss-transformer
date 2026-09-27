@@ -12,8 +12,9 @@
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "prepack": "yarn build"
+    "prepack": "pnpm build"
   },
+  "packageManager": "pnpm@12.6.0",
   "homepage": "https://github.com/nado1001/style-dictionary-tailwindcss-transformer#readme",
   "repository": {
     "type": "git",
