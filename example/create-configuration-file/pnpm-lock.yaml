@@ -10,7 +10,7 @@ importers:
     devDependencies:
       sd-tailwindcss-transformer:
         specifier: ^2.2.0
-        version: 2.2.1(style-dictionary@5.5.5)
+        version: 2.3.0(style-dictionary@5.5.5)
       style-dictionary:
         specifier: ^5.0.4
         version: 5.5.5
@@ -399,8 +399,8 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  sd-tailwindcss-transformer@2.2.1:
-    resolution: {integrity: sha512-EYpj0rLyqNmHkhwoOS29q7JDsUZH2DFKsmyMdpUWzA63Wc1bPAXMcqUiicy4GEl9azpPyNata9+UMmJUajrWqw==}
+  sd-tailwindcss-transformer@2.3.0:
+    resolution: {integrity: sha512-xhk8pQ2Hc93al2CTOzZmQeGnAKcIrQf4H1af87hiVZ47uErgKqEWb1BGKrP41ZGEJnZmSfOx6meX3rxjabpscw==}
     peerDependencies:
       style-dictionary: '>=5.0.0'
 
@@ -878,7 +878,7 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  sd-tailwindcss-transformer@2.2.1(style-dictionary@5.5.5):
+  sd-tailwindcss-transformer@2.3.0(style-dictionary@5.5.5):
     dependencies:
       style-dictionary: 5.5.5
 
