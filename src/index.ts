@@ -1,8 +1,14 @@
 import type { Config, Dictionary } from 'style-dictionary/types'
-import type { SdTailwindConfigType, TailwindFormatObjType } from './types'
+import type {
+  CssThemeEntry,
+  SdTailwindConfigType,
+  TailwindFormatObjType
+} from './types'
 import {
   addHyphen,
   getConfigValue,
+  getCssVariableName,
+  getTemplateCssConfig,
   makeSdObject,
   unquoteFromKeys,
   getTemplateConfigByType
@@ -45,14 +51,55 @@ const formatTokens = (
   return JSON.stringify(result, null, 2)
 }
 
+const formatCssThemeTokens = (
+  tokens: Dictionary['allTokens'],
+  type: SdTailwindConfigType['type']
+): CssThemeEntry[] => {
+  return tokens.reduce<CssThemeEntry[]>((acc, cur) => {
+    if (cur.attributes === undefined) {
+      throw new Error(`Token ${cur.name} has no attributes`)
+    }
+
+    if (cur.attributes.category === type || type === 'all') {
+      acc.push({
+        name: getCssVariableName(cur.path),
+        value: cur['$value'] ?? cur['value']
+      })
+    }
+
+    return acc
+  }, [])
+}
+
 export const getTailwindFormat = ({
   dictionary: { allTokens },
   type,
+  formatType,
   isVariables,
   prefix,
   extend,
   tailwind
 }: TailwindFormatObjType) => {
+  if (formatType === 'css') {
+    const themeEntries = formatCssThemeTokens(allTokens, type)
+    const darkMode = getConfigValue(tailwind?.darkMode, 'class')
+    const plugins = getConfigValue(
+      tailwind?.plugins?.map((plugin) => {
+        const name = Array.isArray(plugin) ? plugin[0] : plugin
+        return `@tailwindcss/${name}`
+      }),
+      []
+    )
+
+    return getTemplateCssConfig(
+      themeEntries,
+      darkMode,
+      plugins,
+      prefix,
+      type === 'all'
+    )
+  }
+
   const content = formatTokens(allTokens, type, isVariables, prefix)
 
   if (type === 'all') {
@@ -103,14 +150,18 @@ export const makeSdTailwindConfig = ({
     throw new Error('type is required')
   }
 
-  if (formatType !== 'js' && formatType !== 'cjs') {
-    throw new Error('formatType must be "js" or "cjs"')
+  if (formatType !== 'js' && formatType !== 'cjs' && formatType !== 'css') {
+    throw new Error('formatType must be "js", "cjs" or "css"')
   }
 
   const destination =
-      type !== 'all'
-          ? `${type}.tailwind.${formatType}`
-          : `tailwind.config.${formatType}`
+    formatType === 'css'
+      ? type !== 'all'
+        ? `${type}.tailwind.css`
+        : `tailwind.css`
+      : type !== 'all'
+        ? `${type}.tailwind.${formatType}`
+        : `tailwind.config.${formatType}`
 
   return {
     preprocessors,

@@ -1,0 +1,13 @@
+{
+  "name": "with-tailwind-v4",
+  "version": "1.0.0",
+  "main": "sd.config.mjs",
+  "license": "MIT",
+  "scripts": {
+    "build": "node sd.config.mjs"
+  },
+  "devDependencies": {
+    "sd-tailwindcss-transformer": "^2.2.0",
+    "style-dictionary": "^5.0.4"
+  }
+}

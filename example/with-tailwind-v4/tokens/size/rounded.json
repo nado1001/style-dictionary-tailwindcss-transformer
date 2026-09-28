@@ -1,0 +1,9 @@
+{
+  "borderRadius": {
+    "none": { "value": "0" },
+    "sm": { "value": ".125rem" },
+    "DEFAULT": { "value": "1rem" },
+    "lg": { "value": ".5rem" },
+    "full": { "value": "9999px" }
+  }
+}
