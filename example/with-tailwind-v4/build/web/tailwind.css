@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/container-queries";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-base-gray-light: #CCCCCC;
+  --color-base-gray-medium: #999999;
+  --color-base-gray-dark: #111111;
+  --color-base-red: #FF0000;
+  --color-base-green: #00FF00;
+  --color-font-base: #FF0000;
+  --color-font-secondary: #00FF00;
+  --color-font-tertiary: #CCCCCC;
+  --text-small: 0.75rem;
+  --text-medium: 1rem;
+  --text-large: 2rem;
+  --text-base: 1rem;
+  --radius-none: 0;
+  --radius-sm: .125rem;
+  --radius: 1rem;
+  --radius-lg: .5rem;
+  --radius-full: 9999px;
+}

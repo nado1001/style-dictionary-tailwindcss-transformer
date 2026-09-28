@@ -3,7 +3,10 @@ import {
   addHyphen,
   getConfigValue,
   unquoteFromKeys,
-  makeSdObject
+  makeSdObject,
+  getV4ThemeNamespace,
+  getCssVariableName,
+  getTemplateCssConfig
 } from '../utils'
 
 describe('addHyphen function', () => {
@@ -110,5 +113,82 @@ describe('makeSdObject function', () => {
         'foo-bar': 'bar'
       }
     })
+  })
+})
+
+describe('getV4ThemeNamespace function', () => {
+  it('should map known v3 theme keys to v4 namespaces', () => {
+    expect(getV4ThemeNamespace('colors')).toEqual('color')
+    expect(getV4ThemeNamespace('fontSize')).toEqual('text')
+    expect(getV4ThemeNamespace('borderRadius')).toEqual('radius')
+    expect(getV4ThemeNamespace('screens')).toEqual('breakpoint')
+  })
+
+  it('should fall back to kebab-cased name for unknown categories', () => {
+    expect(getV4ThemeNamespace('customThing')).toEqual('custom-thing')
+  })
+})
+
+describe('getCssVariableName function', () => {
+  it('should build a namespaced flat variable name from a token path', () => {
+    expect(getCssVariableName(['colors', 'base', 'gray', 'light'])).toEqual(
+      '--color-base-gray-light'
+    )
+    expect(getCssVariableName(['fontSize', 'small'])).toEqual('--text-small')
+  })
+
+  it('should drop a trailing DEFAULT segment', () => {
+    expect(getCssVariableName(['borderRadius', 'DEFAULT'])).toEqual('--radius')
+  })
+})
+
+describe('getTemplateCssConfig function', () => {
+  const entries = [
+    { name: '--color-base-red', value: '#FF0000' },
+    { name: '--text-small', value: '0.75rem' }
+  ]
+
+  it('should render a self-contained stylesheet when full is true', () => {
+    const result = getTemplateCssConfig(
+      entries,
+      'class',
+      ['@tailwindcss/typography'],
+      undefined,
+      true
+    )
+
+    expect(result).toEqual(`@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-base-red: #FF0000;
+  --text-small: 0.75rem;
+}
+`)
+  })
+
+  it('should emit a prefixed import when a prefix is given', () => {
+    const result = getTemplateCssConfig(entries, 'media', [], 'tw', true)
+
+    expect(result).toEqual(`@import "tailwindcss" prefix(tw);
+
+@theme {
+  --color-base-red: #FF0000;
+  --text-small: 0.75rem;
+}
+`)
+  })
+
+  it('should emit only the @theme block when full is false', () => {
+    const result = getTemplateCssConfig(entries, 'class', [], undefined, false)
+
+    expect(result).toEqual(`@theme {
+  --color-base-red: #FF0000;
+  --text-small: 0.75rem;
+}
+`)
   })
 })

@@ -17,7 +17,7 @@ export type TailwindOptions = Pick<TailwindConfig, 'content' | 'darkMode'> & {
     | 'container-queries'
   >
 }
-export type TailwindFormatType = 'js' | 'cjs'
+export type TailwindFormatType = 'js' | 'cjs' | 'css'
 
 export type SdTailwindConfigType = {
   type: 'all' | string
@@ -30,6 +30,11 @@ export type SdTailwindConfigType = {
   prefix?: PlatformConfig['prefix']
   tailwind?: Partial<TailwindOptions>
   extend?: boolean
+}
+
+export type CssThemeEntry = {
+  name: string
+  value: string
 }
 
 export type TailwindFormatObjType = Pick<

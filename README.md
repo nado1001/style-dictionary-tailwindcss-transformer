@@ -191,6 +191,62 @@ module.exports = {
 
 Please see [Example](https://github.com/nado1001/sd-tailwindcss-transformer/tree/main/example) for details.
 
+### Tailwind CSS v4 (CSS-first)
+
+Tailwind CSS v4 moved to a [CSS-first configuration](https://tailwindcss.com/docs/theme) model based on the `@theme` directive and CSS custom properties, instead of a `tailwind.config.js` file.
+
+Set `formatType` to `'css'` to generate a v4-native stylesheet. Token categories are mapped to the corresponding v4 [theme namespaces](https://tailwindcss.com/docs/theme#theme-variable-namespaces) (`colors` → `--color-*`, `fontSize` → `--text-*`, `borderRadius` → `--radius-*`, `screens` → `--breakpoint-*`, etc.), so utilities such as `bg-*` / `text-*` are generated automatically. Unknown categories fall back to their kebab-cased name.
+
+```js
+import StyleDictionary from 'style-dictionary';
+import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
+
+const styleDictionaryTailwind = new StyleDictionary(
+    makeSdTailwindConfig({
+        type: 'all',
+        formatType: 'css',
+        tailwind: {
+            darkMode: 'class',
+            plugins: ['typography', 'container-queries'],
+        },
+    }),
+);
+await styleDictionaryTailwind.hasInitialized;
+await styleDictionaryTailwind.buildAllPlatforms();
+```
+
+Output:
+
+```css
+/* tailwind.css */
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/container-queries";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-base-gray-light: #CCCCCC;
+  --color-base-red: #FF0000;
+  --text-small: 0.75rem;
+  --text-medium: 1rem;
+  --radius-sm: .125rem;
+  --radius: 1rem;
+  ...
+}
+```
+
+Notes:
+
+- `@import "tailwindcss";` / `@plugin "..."` / the dark-mode `@custom-variant` are only emitted when `type` is `'all'`. For a single theme (`type: 'colors'`, etc.) only the `@theme { ... }` block is generated so it can be composed into an existing stylesheet.
+- In v4 the `@theme` block is the single source of truth for both the CSS variables and the theme registration, so `isVariables` is not needed with `formatType: 'css'`.
+- `content` is omitted because v4 detects template files automatically. `darkMode: 'class'` (or `'selector'`) is translated to a `@custom-variant dark (...)`; `darkMode: 'media'` uses the v4 default and emits no variant.
+- When `prefix` is set, the import becomes `@import "tailwindcss" prefix(<prefix>);`.
+- The existing `js` / `cjs` output is kept unchanged as a `@config`-compatible path for backward compatibility.
+
+See the [with-tailwind-v4 example](https://github.com/nado1001/sd-tailwindcss-transformer/tree/main/example/with-tailwind-v4) for a full setup.
+
 ### Options
 
 Optional except for `type`.
@@ -198,7 +254,7 @@ Optional except for `type`.
 | Attribute         | Description                                                                                                                                                                            | Type                                                                                                                                   |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | type              | Set the name of each theme (colors, fontSize, etc.) for `'all'` or tailwind.                                                                                                           | `'all'` or string                                                                                                                      |
-| formatType        | Set the format of the Tailwind CSS configuration file. <br>Default value: `js`                                                                                                         | `'js'` `'cjs'`                                                                                                                         |
+| formatType        | Set the format of the Tailwind CSS configuration file. `css` outputs a Tailwind v4 CSS-first stylesheet (`@theme`). <br>Default value: `js`                                             | `'js'` `'cjs'` `'css'`                                                                                                                 |
 | isVariables       | Set when using CSS custom variables. <br>Default value: `false`                                                                                                                        | boolean                                                                                                                                |
 | extend            | Set to add transformed styles to the `'extend'` key within the `'theme'` key or not. <br>Default value: `true`                                                                         | boolean                                                                                                                                |
 | source            | [`source`](https://github.com/amzn/style-dictionary/blob/main/README.md#configjson) attribute of style-dictionary.<br>Default value: `['tokens/**/*.json']`                            | Array of strings                                                                                                                       |
