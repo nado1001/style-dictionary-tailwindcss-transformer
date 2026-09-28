@@ -14,6 +14,8 @@
 $ npm install sd-tailwindcss-transformer
 # or with yarn
 $ yarn add sd-tailwindcss-transformer
+# or with pnpm
+$ pnpm add sd-tailwindcss-transformer
 ```
 
 ## Usage
