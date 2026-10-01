@@ -35,8 +35,8 @@
     "design-system"
   ],
   "devDependencies": {
-    "@commitlint/cli": "17.8.1",
-    "@commitlint/config-conventional": "17.8.1",
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
     "@eslint/js": "^9.37.0",
     "@tsconfig/node16": "1.0.4",
     "@tsconfig/node22": "^22.0.2",
