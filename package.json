@@ -38,7 +38,7 @@
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
     "@eslint/js": "^9.37.0",
-    "@tsconfig/node16": "1.0.4",
+    "@tsconfig/node16": "16.1.9",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "18.19.130",
     "@vitest/coverage-v8": "^3.2.4",
