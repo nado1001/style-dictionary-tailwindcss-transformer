@@ -10,13 +10,13 @@ importers:
     dependencies:
       next:
         specifier: ^15.5.3
-        version: 15.5.28(@types/node@18.19.130)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 15.5.28(@types/node@18.19.130)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: ^19.0.0
-        version: 19.3.0
+        version: 19.3.1
       react-dom:
         specifier: ^19.0.0
-        version: 19.3.0(react@19.3.0)
+        version: 19.3.1(react@19.3.1)
     devDependencies:
       '@tailwindcss/container-queries':
         specifier: 0.1.1
@@ -937,13 +937,13 @@ packages:
     resolution: {integrity: sha512-h6fhOIaRrID2CbEY2fqs+7t+UXZo+MLAnU5gRIq85uFtdiUPCdsApMlHhXogKVM4HM2DVbIjGNTTYH2OcmP1vA==}
     engines: {node: '>=0.6'}
 
-  react-dom@19.3.0:
-    resolution: {integrity: sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==}
+  react-dom@19.3.1:
+    resolution: {integrity: sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==}
     peerDependencies:
-      react: ^19.3.0
+      react: ^19.3.1
 
-  react@19.3.0:
-    resolution: {integrity: sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==}
+  react@19.3.1:
+    resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==}
     engines: {node: '>=0.10.0'}
 
   safe-buffer@5.2.1:
@@ -1766,15 +1766,15 @@ snapshots:
 
   nanoid@3.3.20: {}
 
-  next@15.5.28(@types/node@18.19.130)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  next@15.5.28(@types/node@18.19.130)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@next/env': 15.5.28
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001812
       postcss: 8.4.31
-      react: 19.3.0
-      react-dom: 19.3.0(react@19.3.0)
-      styled-jsx: 5.1.6(react@19.3.0)
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
+      styled-jsx: 5.1.6(react@19.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.5.28
       '@next/swc-darwin-x64': 15.5.28
@@ -1852,12 +1852,12 @@ snapshots:
       es-define-property: 1.0.1
       side-channel: 1.1.1
 
-  react-dom@19.3.0(react@19.3.0):
+  react-dom@19.3.1(react@19.3.1):
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
       scheduler: 0.28.0
 
-  react@19.3.0: {}
+  react@19.3.1: {}
 
   safe-buffer@5.2.1: {}
 
@@ -1975,10 +1975,10 @@ snapshots:
       prettier: 3.9.9
       tinycolor2: 1.6.0
 
-  styled-jsx@5.1.6(react@19.3.0):
+  styled-jsx@5.1.6(react@19.3.1):
     dependencies:
       client-only: 0.0.1
-      react: 19.3.0
+      react: 19.3.1
 
   tailwindcss@4.3.3: {}
 
