@@ -15,7 +15,7 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "prepack": "pnpm build"
   },
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.14.0",
   "homepage": "https://github.com/nado1001/style-dictionary-tailwindcss-transformer#readme",
   "repository": {
     "type": "git",
