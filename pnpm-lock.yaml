@@ -175,9 +175,9 @@ importers:
       '@eslint/js':
         specifier: ^9.37.0
         version: 9.39.5
-      '@tsconfig/node16':
-        specifier: 1.0.4
-        version: 1.0.4
+      '@tsconfig/node18':
+        specifier: 18.2.0
+        version: 18.2.0
       '@tsconfig/node22':
         specifier: ^22.0.2
         version: 22.0.6
@@ -989,6 +989,9 @@ packages:
 
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+
+  '@tsconfig/node18@18.2.0':
+    resolution: {integrity: sha512-yhxwIlFVSVcMym3O31HoMnRXpoenmpIxcj4Yoes2DUpe+xCJnA7ECQP1Vw889V0jTt/2nzvpLQ/UuMYCd3JPIg==}
 
   '@tsconfig/node22@22.0.6':
     resolution: {integrity: sha512-/5thavHAnWDZwH2H6eEn/T8pBEBhtuKaWGMslsj82kJfvzQgOgEMK7X4goBbIUjgVtAzPTtM9Ml64LA0uxO6Iw==}
@@ -4429,6 +4432,8 @@ snapshots:
   '@tsconfig/node14@1.0.3': {}
 
   '@tsconfig/node16@1.0.4': {}
+
+  '@tsconfig/node18@18.2.0': {}
 
   '@tsconfig/node22@22.0.6': {}
 
