@@ -41,10 +41,10 @@ importers:
         version: 8.5.32
       sd-tailwindcss-transformer:
         specifier: ^2.2.0
-        version: 2.3.0(style-dictionary@5.7.0)
+        version: 2.3.0(style-dictionary@5.7.1)
       style-dictionary:
         specifier: ^5.0.4
-        version: 5.7.0
+        version: 5.7.1
       tailwindcss:
         specifier: ^4.1.13
         version: 4.3.3
@@ -1009,8 +1009,8 @@ packages:
   string_decoder@1.3.0:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
 
-  style-dictionary@5.7.0:
-    resolution: {integrity: sha512-imy4PuzqWTCpPE9YMcDSlqtb9zV4wj8I06hRDpt+/HTJVH88KKuMx0X++/PMDjQAGptSxqIkYiulOSwSL5r6Kw==}
+  style-dictionary@5.7.1:
+    resolution: {integrity: sha512-qO9WsyR5jZWz8+5JRtehn7HF8YAvm+Jd8UxiYHtvZhYSNwfMfAVOBK1anjdZwbH+njFb7xuQsjqpD+djPXErcw==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -1869,9 +1869,9 @@ snapshots:
 
   scheduler@0.28.0: {}
 
-  sd-tailwindcss-transformer@2.3.0(style-dictionary@5.7.0):
+  sd-tailwindcss-transformer@2.3.0(style-dictionary@5.7.1):
     dependencies:
-      style-dictionary: 5.7.0
+      style-dictionary: 5.7.1
 
   semver@7.8.5:
     optional: true
@@ -1959,7 +1959,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  style-dictionary@5.7.0:
+  style-dictionary@5.7.1:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.2
       '@bundled-es-modules/glob': 13.0.6
