@@ -47,7 +47,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^15.15.0",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "prettier": "^3.9.9",
     "rimraf": "3.0.2",
     "semantic-release": "^24.1.1",
